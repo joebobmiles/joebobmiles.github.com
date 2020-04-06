@@ -1,16 +1,18 @@
 {
-  "name": "gatsby-starter-empty",
+  "name": "notes-2-self",
   "private": true,
-  "description": "An empty Gatsby starter, for minimalists and wack-jobs.",
+  "description": "No-shit notes, how-to's, pointers, tips, and tricks.",
   "version": "1.0.0",
-  "author": "Joseph R Miles <me@josephrmiles.com>",
+  "author": "Joseph R Miles <joe@notes2self.com>",
   "dependencies": {
     "gatsby": "^2.19.45",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "devDependencies": {},
-  "homepage": "https://github.com/joebobmiles/gatsby-starter-empty#readme",
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  },
+  "homepage": "https://github.com/joebobmiles/Notes2Self#readme",
   "keywords": [
     "gatsby",
     "empty",
@@ -19,7 +21,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joebobmiles/gatsby-starter-empty.git"
+    "url": "git+https://github.com/joebobmiles/Notes2Self.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -27,6 +29,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "npm run build && gh-pages -d public -b master"
   }
 }
