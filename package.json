@@ -29,7 +29,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "npm run build && gh-pages -d public -b master"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "deploy": "npm run build && gh-pages -d public -b master",
+    "deploy:travis": "npm run build && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/joebobmiles/Notes2Self.git"
   }
 }
