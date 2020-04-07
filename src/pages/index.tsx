@@ -1,13 +1,11 @@
 import React from "react"
 
+import Layout from "../components/Layout"
+
 const Site = () => (
-  <>
-    <h1>Notes2Self</h1>
-
+  <Layout>
     <p>No shit notes, how-to's, pointers, tips, and tricks.</p>
-
-    <p>&copy; Joseph R Miles 2020</p>
-  </>
+  </Layout>
 )
 
 export default Site
