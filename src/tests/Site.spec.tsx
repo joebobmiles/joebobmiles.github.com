@@ -6,7 +6,7 @@ import Site from "../pages/index"
 describe("Home page", () => {
 
     it("Renders without error.", () => {
-        expect(shallow(<Site />)).toExist()
+        expect(shallow(<Site />)).toHaveLength(1)
     })
 
 })

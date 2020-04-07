@@ -6,9 +6,11 @@ import NotFoundPage from "../pages/404"
 describe("Not Found Page page", () => {
 
     it("Renders without error.", () => {
-        // I would use toExist() instead, but that fails for this page.
-        // I do not know why...
         expect(shallow(<NotFoundPage />)).toHaveLength(1)
+    })
+
+    it("It shows \"404 - That's an error!\" message", () => {
+        expect(shallow(<NotFoundPage />).find("h1").text()).toEqual("404 - That's an error!")
     })
 
 })
