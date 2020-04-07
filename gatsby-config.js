@@ -6,5 +6,13 @@ module.exports = {
     },
     siteUrl: `https://example.dev`,
   },
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true,
+        allExtensions: true
+      }
+    }
+  ],
 }
