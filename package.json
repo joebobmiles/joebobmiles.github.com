@@ -11,9 +11,17 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.2.1",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "gh-pages": "^2.2.0",
+    "jest": "^25.2.7",
+    "jest-enzyme": "^7.1.2",
+    "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
   },
   "homepage": "https://github.com/joebobmiles/Notes2Self#readme",
@@ -33,8 +41,26 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "test": "jest",
     "deploy": "npm run build && gh-pages -d public -b master",
     "deploy:travis": "npm run build && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/joebobmiles/Notes2Self.git"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "/tests/.+\\.spec\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>src/tests/setupTests.ts"
+    ]
   }
 }
