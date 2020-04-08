@@ -84,13 +84,10 @@ structure:
 
 ```
 PersonalSite
-|- content/
 |- src/
-|  |- components/
 |  |- pages/
 |  |  |- 404.js
 |  |  |- index.js
-|  |- templates/
 |- static/
 |  |- favicon.ico
 |  |- robots.txt
@@ -99,11 +96,10 @@ PersonalSite
 |- package.json
 ```
 
-There’s a lot of empty directories that you can delete if you are so
-inclined, but I will leave them as they are. You will notice, aside from the
-gitignore, favicon, and robots file, we are left with four files of interest:
-package.json, gatsby-config.js, src/pages/index.js, and src/pages/404.js. The
-package.json is pretty standard (and bare), so we’ll skip over that.
+You will notice, aside from the gitignore, favicon, and robots file, we are
+left with four files of interest: package.json, gatsby-config.js,
+src/pages/index.js, and src/pages/404.js. The package.json is pretty standard
+(and bare), so we’ll skip over that.
 
 The next file, gatsby-config.js, is, you guessed it, the Gatsby config file.
 This is used to control the build configuration that Gatsby uses to turn your
