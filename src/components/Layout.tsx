@@ -39,15 +39,21 @@ export default ({ children }) => {
                 <meta name="description" content={siteDescription} />
             </Helmet>
 
-            <Link to="/">
-                <h1>{siteTitle}</h1>
-            </Link>
+            <header>
+                <Link to="/">
+                    <h1>{siteTitle}</h1>
+                </Link>
+            </header>
 
-            {children}
+            <main>
+                {children}
+            </main>
 
-            <p>
-                &copy; {authorName} {siteBuildTime}
-            </p>
+            <footer>
+                <p>
+                    &copy; {authorName} {siteBuildTime}
+                </p>
+            </footer>
         </>
     )
 

@@ -57,6 +57,7 @@ module.exports = {
         pixel: true
       }
     },
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`
   ],
 }

@@ -4,6 +4,10 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 
 
+import "../styles/global.sass"
+import "../styles/homepage.sass"
+
+
 const Site = ({ data }) => {
 
     const allMdx = data.allMdx
@@ -17,9 +21,7 @@ const Site = ({ data }) => {
                 <Link key={id} to={fields.slug}>
                     <article>
                         <h3>
-                            {frontmatter.title}
-                            &mdash;
-                            {frontmatter.date}
+                            {frontmatter.title} <span>&mdash; {frontmatter.date}</span>
                         </h3>
                         <p>{excerpt}</p>
                     </article>
