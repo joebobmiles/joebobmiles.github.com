@@ -1,0 +1,59 @@
+---
+title: "Getting Up And Running With TypeScript"
+date: 2020-03-23
+---
+
+If you’re like me and are someone who is:
+ - [ ] Just getting started with Gatsby,
+ - [ ] Already familiar with TypeScript, and
+ - [ ] Used a basic Gatsby Starter (like my gatsby-starter-empty) that came
+    without TypeScript[^1]
+
+You’ll probably be wondering how to get up and running with TypeScript so you
+can enjoy all the benefits of typed JavaScript.
+
+So how do you do it?
+
+# How You Do It
+
+<img src="PluginsFuckingEverywhere.jpg"
+     alt="Astronaut Buzz Lightyear soothes his friend Woody's existential worries with the simple truth: plugins, plugins fucking everywhere."
+     title="Something about plugins just rubs me the wrong way. Then again, I have issues with JavaScript in general..." />
+
+
+It starts with plugins, which is a common theme in Gatsby. If you’ve read
+and/or followed the Gatsby documentation, they use plugins for damn near
+everything (which annoys me to no end). So, to get started with using
+TypeScript in your Gatsby project, simply run the following commands:
+
+```
+$ npm install --save gatsby-plugin-typescript
+$ npm install --save-dev typescript @types/node @types/react @types/react-dom
+```
+
+Enable the TypeScript plugin we installed by adding
+‘gatsby-plugin-typescript’ to your plugin list in gatsby-config.js, and
+startup your development server:
+
+```
+$ npm run develop
+```
+
+If you did everything exactly as shown above, you shouldn’t get any build
+errors, which is great! Now we have TypeScript compilation working for our
+Gatsby project. All you have to do to start using TypeScript is change all
+those pesky .js/.jsx files into .ts/.tsx and you should be off to the races!
+
+> __NOTE:__ Don’t change the file endings on any of your Gatsby config files! If
+> you do, then Gatsby will startup assuming it has no configuration, breaking
+> the build! In the Gatsby documentation for working with TypeScript, they
+> explicitly state that you should not change the Gatsby config file endings
+> from .js to .ts, and it’s (usually) a good idea to heed the docs!
+
+
+[^1]:
+    If you’re smart, you could avoid this by installing the TypeScript Starter,
+    gatsby-starter-typescript, which is a fork of the default Starter
+    (gatsby-starter-default) that has been converted over to TypeScript. This
+    tutorial assumes that, like me, you were too stubborn (or clueless) about
+    starting with as little as possible to be this smart.

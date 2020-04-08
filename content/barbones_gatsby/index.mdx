@@ -1,0 +1,169 @@
+---
+title: "Barbones Gatsby"
+date: 2020-03-21
+---
+
+After days of frustrated floundering with starters, plugins, and Gatsby’s
+generally lacking in straight-forward-ness, I’ve decided to start my own
+little bootstrapping guide. The purpose of this guide is to demystify how the
+fuck Gatsby works and to better come to grips with how plugins, transformers,
+and the various other chicanery, work.
+
+# For Starters
+
+We all have to start somewhere, and that’s where Gatsby’s starters come in.
+What’s a starter? Well, in Gatsby, you have two options: build the project
+from scratch using npm and your text editor, or make Gatsby write all the
+boilerplate for you. Starters allow you to specify what kind of boilerplate
+you want to start your site with. Gatsby has a default starter, but as near
+as I can tell, it’s intended to be a quickstart for people who already know
+what they’re doing.
+
+As you can imagine, that’s a problem for people like us who don’t know what
+they’re doing.
+
+I tried looking around for a barebones Gatsby starter that literally only had
+Gatsby and React installed, but any variation of “minimal”, “barebones”, and
+“empty” I put into Google just left me with either reskinned versions of the
+blog starter or random articles about Gatsby starters. Bleck.
+
+That left me with creating my own. The process to get there looked a little
+like this:
+
+<img title="Oh good, my puppy found the chainsaw"
+     alt="Stitch, a blue alien creature, stands on top of a rusty Volkswagon Beetle, laughing maniacly and brandishing a chainsaw."
+     src="./StitchWithChainsaw.gif" />
+
+Yeah… If you don’t want to go crazy and tear up a bunch of code, I turned the
+torn down code into its own Gatsby starter:
+https://github.com/joebobmiles/gatsby-starter-empty. To use it, we first need
+to install Gatsby (if you haven’t already):
+
+```
+$ npm install --global gatsby-cli
+```
+
+As you probably notice, Gatsby informs us that it’s configured to report to
+its overlords by default. (I have multiple issues with this, but that’s a
+subject for a different article.)
+
+```
+> gatsby-cli@2.10.13 postinstall C:\Users\josep\AppData\Roaming\npm\node_modules\gatsby-cli
+> node scripts/postinstall.js
+
+╔════════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║ Gatsby collects anonymous usage analytics                          ║
+║ to help improve Gatsby for all users.                              ║
+║                                                                    ║
+║ If you'd like to opt-out, you can use `gatsby telemetry --disable` ║
+║ To learn more, checkout https://gatsby.dev/telemetry               ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
+
+I don’t like my apps reporting to their overlords, so I disabled telemetry.
+
+Now that we have Gatsby installed, we can go about setting up our project. To
+do so, use the following command:
+
+```
+$ gatsby new PersonalSite https://github.com/joebobmiles/gatsby-starter-empty
+```
+
+This will clone the starter repository and rename the cloned directory to
+PersonalSite. You can name your folder to whatever you want, so feel free to
+change the name given to the Gatsby CLI.
+
+Congrats, you just created your first Gatsby project! Yay!
+
+# A Tour of the Carnage
+
+Inside the folder you just cloned, you’ll find the following directory
+structure:
+
+```
+PersonalSite
+|- content/
+|- src/
+|  |- components/
+|  |- pages/
+|  |  |- 404.js
+|  |  |- index.js
+|  |- templates/
+|- static/
+|  |- favicon.ico
+|  |- robots.txt
+|- .gitignore
+|- gatsby-config.js
+|- package.json
+```
+
+There’s a lot of empty directories that you can delete if you are so
+inclined, but I will leave them as they are. You will notice, aside from the
+gitignore, favicon, and robots file, we are left with four files of interest:
+package.json, gatsby-config.js, src/pages/index.js, and src/pages/404.js. The
+package.json is pretty standard (and bare), so we’ll skip over that.
+
+The next file, gatsby-config.js, is, you guessed it, the Gatsby config file.
+This is used to control the build configuration that Gatsby uses to turn your
+source code and data into a beautiful static website. There’s a lot that goes
+into here once you get going, but for just starting out, you don’t need much:
+
+```
+module.exports = {
+  siteMetadata: {
+title: `My Blog`,
+    author: {
+        name: `Full Name`,
+    },
+    siteUrl: `https://example.dev`,
+  },
+  plugins: [],
+}
+```
+
+In theory, this could be completely empty, but to save everybody time writing
+the basics from scratch, I left the siteMetadata and plugins fields. The
+plugins field is empty because, well, we’re not using any to run this basic
+starter. I’ll talk about using plugins at a later time.
+
+Now to the site itself: index.js and 404.js. Both are required by Gatsby, so
+I had to leave them in there (and inside the pages directory). They’re fairly
+simple:
+
+index.js
+```
+import React from "react"
+
+const Site = () => (
+  <h1>Hello World!</h1>
+)
+
+export default Site
+```
+
+404.js
+```
+import React from "react"
+
+const NotFoundPage = () => (
+  <h1>404 - That's an error!</h1>
+)
+
+export default NotFoundPage
+```
+
+Both files declare React function components, and set them to be default
+exports. When the Gatsby build runs, it seeks out these files, imports their
+default exports, and uses them to generate an index.html, plus a bundled
+common.js that contains the Site and NotFoundPage components.
+Now, if we startup the Gatsby development server using:
+
+```
+$ npm run develop # or `gatsby develop`
+```
+
+And visit `http://localhost:8000` (after waiting for the development server
+to build the site), we should be greeted with a lovely “Hello World!” HTML
+page! Awesome!
