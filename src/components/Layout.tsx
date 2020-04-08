@@ -38,6 +38,7 @@ export default ({ children }) => {
                 <meta name="author" content={authorName} />
                 <meta name="description" content={siteDescription} />
             </Helmet>
+
             <Link to="/">
                 <h1>{siteTitle}</h1>
             </Link>
