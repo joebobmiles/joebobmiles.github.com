@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery, Link } from "gatsby"
 
 
@@ -9,6 +10,7 @@ export default ({ children }) => {
             site {
                 siteMetadata {
                     title
+                    description
                     author {
                         name
                     }
@@ -21,11 +23,21 @@ export default ({ children }) => {
     `)
 
     const siteTitle = site.siteMetadata.title
+    const siteDescription = site.siteMetadata.description
+
     const authorName = site.siteMetadata.author.name
+
     const siteBuildTime = siteBuildMetadata.buildTime
 
     return (
         <>
+            <Helmet>
+                <title>{siteTitle}</title>
+
+                <meta charSet="utf-8" />
+                <meta name="author" content={authorName} />
+                <meta name="description" content={siteDescription} />
+            </Helmet>
             <Link to="/">
                 <h1>{siteTitle}</h1>
             </Link>

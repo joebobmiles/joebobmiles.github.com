@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Notes2Self`,
+    description: `No-shit notes, how-to's, pointers, tips, and tricks.`,
     author: {
         name: `Joseph Miles`,
         email: `joe@notes2self.dev`,
