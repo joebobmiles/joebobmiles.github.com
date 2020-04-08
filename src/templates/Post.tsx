@@ -19,11 +19,16 @@ export default ({ data }: PostProps) => {
 
     return (
         <Layout>
+            <h1>{frontmatter.title}</h1>
+            <h3>{frontmatter.date}</h3>
+
             <MDXProvider>
                 <MDXRenderer>
                     {body}
                 </MDXRenderer>
             </MDXProvider>
+
+            <p>&mdash; {siteMetadata.author.name}</p>
         </Layout>
     )
 }

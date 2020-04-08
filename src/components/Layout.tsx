@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, Link } from "gatsby"
 
 
 export default ({ children }) => (
