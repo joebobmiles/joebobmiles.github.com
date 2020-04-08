@@ -31,7 +31,22 @@ module.exports = {
       options: {
         defaultLayouts: {
           default: "./src/components/Layout.tsx"
-        }
+        },
+        gatsbyRemarkPlugins: [
+          `gatsby-remark-images`,
+          `gatsby-remark-numbered-footnotes`,
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: `images`,
+              ignoreFileExtensions: [
+                `.jpeg`,
+                `.jpg`,
+                `.png`
+              ]
+            }
+          }
+        ]
       }
     },
     {
@@ -41,6 +56,7 @@ module.exports = {
         head: true,
         pixel: true
       }
-    }
+    },
+    `gatsby-plugin-sharp`
   ],
 }
