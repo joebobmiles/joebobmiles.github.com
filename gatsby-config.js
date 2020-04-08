@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `My Blog`,
+    title: `Notes2Self`,
     author: {
-        name: `Full Name`,
+        name: `Joseph Miles`,
+        email: `joe@notes2self.dev`,
     },
-    siteUrl: `https://example.dev`,
+    siteUrl: `https://notes2self.dev`,
   },
   plugins: [
     {
@@ -12,6 +13,21 @@ module.exports = {
       options: {
         isTSX: true,
         allExtensions: true
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/content`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: "./src/components/Layout.tsx"
+        }
       }
     }
   ],
