@@ -1,13 +1,41 @@
 import React from "react"
-import { useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 
-export default ({ children }) => (
-    <>
-        <h1>Notes2Self</h1>
+export default ({ children }) => {
 
-        {children}
+    const { site, siteBuildMetadata } = useStaticQuery(graphql`
+        query {
+            site {
+                siteMetadata {
+                    title
+                    author {
+                        name
+                    }
+                }
+            }
+            siteBuildMetadata {
+                buildTime(formatString: "YYYY")
+            }
+        }
+    `)
 
-        <p>&copy; Joseph R Miles 2020</p>
-    </>
-)
+    const siteTitle = site.siteMetadata.title
+    const authorName = site.siteMetadata.author.name
+    const siteBuildTime = siteBuildMetadata.buildTime
+
+    return (
+        <>
+            <Link to="/">
+                <h1>{siteTitle}</h1>
+            </Link>
+
+            {children}
+
+            <p>
+                &copy; {authorName} {siteBuildTime}
+            </p>
+        </>
+    )
+
+}
