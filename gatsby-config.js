@@ -1,3 +1,6 @@
+const isProduction = process.env.NODE_ENV === 'production'
+
+
 module.exports = {
   siteMetadata: {
     title: `Notes2Self`,
@@ -29,6 +32,14 @@ module.exports = {
         defaultLayouts: {
           default: "./src/components/Layout.tsx"
         }
+      }
+    },
+    {
+      resolve: `gatsby-plugin-goatcounter`,
+      options: {
+        code: isProduction ? "notes2self" : "",
+        head: true,
+        pixel: true
       }
     }
   ],
