@@ -33,7 +33,13 @@ module.exports = {
           default: "./src/components/Layout.tsx"
         },
         gatsbyRemarkPlugins: [
-          `gatsby-remark-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              showCaptions: true,
+              markdownCaptions: true
+            }
+          },
           `gatsby-remark-numbered-footnotes`,
           {
             resolve: `gatsby-remark-copy-linked-files`,

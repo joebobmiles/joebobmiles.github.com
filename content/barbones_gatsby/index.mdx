@@ -1,5 +1,5 @@
 ---
-title: "Barbones Gatsby"
+title: "Barebones Gatsby"
 date: 2020-03-21
 ---
 
@@ -30,9 +30,14 @@ blog starter or random articles about Gatsby starters. Bleck.
 That left me with creating my own. The process to get there looked a little
 like this:
 
-<img title="Oh good, my puppy found the chainsaw"
-     alt="Stitch, a blue alien creature, stands on top of a rusty Volkswagon Beetle, laughing maniacly and brandishing a chainsaw."
-     src="./StitchWithChainsaw.gif" />
+<figure>
+  <img title="Oh good, my puppy found the chainsaw"
+      alt="Stitch, a blue alien creature, stands on top of a rusty Volkswagon Beetle, laughing maniacly and brandishing a chainsaw."
+      src="./StitchWithChainsaw.gif" />
+  <figcaption>
+    "Oh good, my puppy found the chainsaw"
+  </figcaption>
+</figure>
 
 Yeah… If you don’t want to go crazy and tear up a bunch of code, I turned the
 torn down code into its own Gatsby starter:
@@ -52,13 +57,13 @@ subject for a different article.)
 > node scripts/postinstall.js
 
 ╔════════════════════════════════════════════════════════════════════════╗
-║                                                                    ║
-║ Gatsby collects anonymous usage analytics                          ║
-║ to help improve Gatsby for all users.                              ║
-║                                                                    ║
-║ If you'd like to opt-out, you can use `gatsby telemetry --disable` ║
-║ To learn more, checkout https://gatsby.dev/telemetry               ║
-║                                                                    ║
+║                                                                           ║
+║ Gatsby collects anonymous usage analytics                                 ║
+║ to help improve Gatsby for all users.                                     ║
+║                                                                           ║
+║ If you'd like to opt-out, you can use `gatsby telemetry --disable`        ║
+║ To learn more, checkout https://gatsby.dev/telemetry                      ║
+║                                                                           ║
 ╚════════════════════════════════════════════════════════════════════════╝
 ```
 
@@ -109,7 +114,7 @@ into here once you get going, but for just starting out, you don’t need much:
 ```
 module.exports = {
   siteMetadata: {
-title: `My Blog`,
+    title: `My Blog`,
     author: {
         name: `Full Name`,
     },

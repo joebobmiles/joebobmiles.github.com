@@ -5,7 +5,6 @@ import Layout from "../components/Layout"
 
 
 import "../styles/global.sass"
-import "../styles/homepage.sass"
 
 
 const Site = ({ data }) => {
@@ -16,17 +15,17 @@ const Site = ({ data }) => {
 
     return (
         <Layout>
-            {edges.map(({ node }) => node)
-            .map(({ frontmatter, fields, excerpt, id }) => (
-                <Link key={id} to={fields.slug}>
-                    <article>
+            <main>
+                {edges.map(({ node }) => node)
+                .map(({ frontmatter, fields, excerpt, id }) => (
+                    <Link key={id} to={fields.slug} className="article-blurb">
                         <h3>
-                            {frontmatter.title} <span>&mdash; {frontmatter.date}</span>
+                            {frontmatter.title} <span>&mdash; <time>{frontmatter.date}</time></span>
                         </h3>
                         <p>{excerpt}</p>
-                    </article>
-                </Link>
-            ))}
+                    </Link>
+                ))}
+            </main>
         </Layout>
     )
 }

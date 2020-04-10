@@ -29,16 +29,16 @@ export default ({ data }: PostProps) => {
                 <meta name="description" content={excerpt} />
             </Helmet>
 
-            <h1>{frontmatter.title}</h1>
-            <h3>{frontmatter.date}</h3>
+            <article>
+                <time>{frontmatter.date}</time>
+                <h1 id="title">{frontmatter.title}</h1>
 
-            <MDXProvider>
-                <MDXRenderer>
-                    {body}
-                </MDXRenderer>
-            </MDXProvider>
-
-            <p>&mdash; {siteMetadata.author.name}</p>
+                <MDXProvider>
+                    <MDXRenderer>
+                        {body}
+                    </MDXRenderer>
+                </MDXProvider>
+            </article>
         </Layout>
     )
 }

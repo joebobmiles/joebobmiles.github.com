@@ -45,9 +45,7 @@ export default ({ children }) => {
                 </Link>
             </header>
 
-            <main>
-                {children}
-            </main>
+            {children}
 
             <footer>
                 <p>
