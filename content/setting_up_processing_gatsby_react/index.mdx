@@ -1,0 +1,191 @@
+---
+title: "Setting Up Processing + Gatsby + React"
+date: "2020-04-11"
+---
+
+One of the things I wanted to do with this site is use the awesome Processing
+for JavaScript library `p5.js`. `p5.js` is a pretty sweet library, but it’s not
+designed to be used with React – at least, not easily.
+
+For this project, we'll be trying to get the following MDX file working properly:
+
+```
+---
+title: "Basic Sketch"
+date: "2020-04-11"
+---
+
+import "p5"
+
+<Sketch
+    setup={(p, canvasParentRef) => {
+        p.createCanvas(640,480).parent(canvasParentRef)
+        p.noLoop()
+    }}
+
+    draw={(p) => {
+        p.cirlce(p.width/2, p.height/2, 80)
+    }}
+/>
+```
+
+# Problem 1: Getting `p5.js` Into React
+
+`p5.js` is meant to be delivered via CDN to a website, not used as an NPM
+package. This doesn’t mean you can’t, there _is_ an official p5.js NPM
+package. However, using `p5.js` this way is not as simple or elegant as using
+it the usual way. The biggest difference is that you must create a `p5` object
+that contains all your sketch’s functions and link that object to a canvas
+element.
+
+While trivial to accomplish in React, I found a handy React component that
+already put in the leg work: `react-p5`[^1]. This package provides a Sketch
+component that allowed me to provide `setup()`, `draw()`, and all the other
+usual `p5.js` sketch functions as props. The Sketch component then handles all
+the management of `p5.js`.
+
+# Problem 2: Not Breaking the Gatsby Build
+
+Sweet! We’ve got `p5.js` into our Gatsby React websit- Fuck, the build’s broken.
+
+Ain’t that the way. Well, what exactly is the problem? Gatsby complains about
+there being no variable `window` defined:
+
+```
+ ERROR 
+
+There was an error compiling the html.js component for the development server.
+
+See our docs page on debugging HTML builds for help https://gatsby.dev/debug-html ReferenceError: window is not defined
+
+
+  69915 |           // requestAnimationFrame polyfill by Erik Möller
+  69916 |           // fixes from Paul Irish and Tino Zijdel        
+> 69917 |           window.requestAnimationFrame = (function() {    
+        | ^
+  69918 |             return (
+  69919 |               window.requestAnimationFrame ||
+  69920 |               window.webkitRequestAnimationFrame ||
+
+
+  WebpackError: ReferenceError: window is not defined
+```
+
+For those just learning Gatsby, like myself at the time of writing this,
+that’s a little confusing. Why should Gatsby care that window isn’t defined?
+Isn’t it just rendering our components as HTML?
+
+Yes, yes, it is rendering our components to HTML. And the problem is found
+there: Gatsby uses native React functions to render HTML components outside
+of the browser environment, much like how test renderers work. When Gatsby
+does this, it makes a very big assumption: your components don’t use browser
+defined variables.
+
+Now this assumption isn’t without reason. If your pages are supposed to be
+statically rendered, they shouldn’t use browser defined variables when being
+rendered. It defeats the whole purpose of being statically rendered if they
+depend on the client.
+
+But, obviously, we sometimes want to use browser variables. This means we
+have to trick Gatsby into not rendering our components that violate its core
+assumption.
+
+# Enter: The Loadable Component
+
+Turns out that this is such a common problem in the React ecosystem that
+there’s a library out there for it. It’s called `@loadable/component`, and it
+provides a decorator for creating loadable components.
+
+On the tin, `@loadable/component` states that it provides “React code splitting
+made easy.” Being new to React, that makes zero sense. But after some
+research, I found that code splitting is the practice of literally splitting
+your code into separate bundles. `@loadable/component` does this by providing a
+decorator that accepts a function that returns the result of a **dynamic import**
+as its parameter.
+
+This decorator generates a wrapper component that renders the component that
+the dynamic import returns. _This all assumes that the component you want to
+render is the **default export** of the module you are loading. If it’s not,
+this whole thing breaks_. Luckily for us, React standard practice dictates
+that the component you want people to render is always the default export,
+and the author of `react-p5` follows that standard practice.
+
+This allows for some, almost deceptively, simple code:
+
+```
+import loadable from "@loadable/component"
+
+const Sketch = loadable(() => import("react-p5"))
+```
+
+The component created can be passed into MDXProvider component as a shortcode
+that can be used by the `gatsby-plugin-mdx` plugin:
+
+```
+const shortcodes = { Sketch }
+
+const Template = () => (
+    <MDXProvider shortcodes={shortcodes}>
+        ...
+    </MDXProvider>
+)
+```
+
+Why this saves our bacon is because Gatsby, under the hood, uses Webpack to
+bundle the client-side code. Webpack automatically registers that when it
+sees a dynamic import, the code that is imported needs to be isolated into
+its own bundle that will be loaded by the client during runtime. And because
+dynamic imports can only happen during runtime, Gatsby’s React renderer
+ignores them when performing static rendering, preventing it from trying to
+execute code that needs to be run in the browser.
+
+# "Your Solution is Trash, My Build is Still Broke"
+
+If you checked your Gatsby build, you probably noticed that it’s still broke.
+And you’ll also have noticed that Gatsby is still complaining about the
+`window` variable not being defined. So, sounds like code splitting didn’t
+save us at all.
+
+But this is a different error. Our loadable component can’t save us from
+needing to include `p5.js` in our sketch file, which can’t be lazily loaded
+since our sketch file's code get's executed outside of our area of influence.
+For this we need a different trick: null loading client-only modules.
+
+This is a trick that comes from Webpack. To implement it, we have to edit (or
+in some cases, create) a `gatsby-node.js` file that contains the following
+snippet:
+
+```
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+    if (stage === "build-html" || stage === "develop-html") {
+        actions.setWebpackConfig({
+            module: {
+                rules: [
+                    {
+                        test: /p5/,
+                        use: loaders.null()
+                    }
+                ]
+            }
+        })
+    }
+}
+```
+
+What this snippet does is modify the generated Webpack configuration made by
+Gatsby’s build routine with a module rule that states: _If a package contains
+the string “p5”, load it with the null-loader_. This null-loader passes a null
+module to Webpack, preventing it from trying to bundle the module and causing
+a build error.
+
+If you restart the Gatsby development server and watch the initial build, it
+will succeed without so much as a peep! (Assuming the rest of your build
+isn’t causing grief!)
+
+
+
+[^1]:
+    There is an alternative package you can use called `react-p5-wrapper`,
+    which accomplishes the same task, but accepts different props. I chose
+    `react-p5` because I could inline my p5.js functions into the component
+    instead of having to encapsulate them in a function.
