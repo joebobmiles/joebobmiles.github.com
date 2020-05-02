@@ -1,3 +1,6 @@
+@import "vars"
+
+
 h1, h2, h3, h4, h5, h6
   margin-top: 1.5em
 
@@ -33,6 +36,9 @@ p, ul, ol, blockquote, pre, figure
 
 blockquote
   grid-column: 2 / span 2
+
+  @media screen and ( max-width: $min-view-width )
+    grid-column: 1 / span 2
 
   padding-left: 6px + 8px * 2
 
@@ -73,13 +79,15 @@ img
   height: auto
 
 pre
+  width: 100%
   grid-column: 2 / span 3
+
+  @media screen and ( max-width: $min-view-width )
+    grid-column: 1 / span 3
 
   line-height: 1
 
-  white-space: pre-wrap
-  word-break: break-word
-  overflow-wrap: break-word
+  overflow-x: auto
 
   padding: 1em 8px
 
@@ -96,6 +104,9 @@ code
 
 figure
   grid-column: 2 / span 3
+
+  @media screen and ( max-width: $min-view-width )
+    grid-column: 1 / span 3
 
   padding: 0 8px
 

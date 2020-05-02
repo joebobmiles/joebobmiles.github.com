@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,600;1,300;1,600&display=swap')
 
 
+@import "vars"
+@import "fluid-type"
+
+
 $font-stack: 'ibm plex mono', monospace
 
 
@@ -11,19 +15,26 @@ $font-stack: 'ibm plex mono', monospace
 
 
 body
-    font-family: $font-stack
-    font-size: 12pt
-    line-height: 2
+  @include fluid-type($min-vw: 320px, $max-vw: 1200px, $min-font-size: 14px, $max-font-size: 18px)
 
-    color: hsl(0,0,20%)
+  font-family: $font-stack
+  line-height: 2
+
+  color: hsl(0,0,20%)
 
 
 header, main, footer, article
   display: grid
-  grid-template-columns: 1fr 8px 70ch 8px 1fr
+  grid-template-columns: 1fr 8px 75ch 8px 1fr
+
+  @media screen and ( max-width: $min-view-width )
+    grid-template-columns: 8px auto 8px
 
   *
     grid-column: 3
+
+    @media screen and ( max-width: $min-view-width )
+      grid-column: 2
 
 
 header
