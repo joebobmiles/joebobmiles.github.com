@@ -1,0 +1,46 @@
+---
+title: "Using HTML Attributes as React Component Props in TypeScript"
+date: 2020-05-04
+---
+
+The hardest thing in TypeScript is knowing what types to give things,
+especially when using third-party libraries like React. My most recent
+headache has been trying to find a decent way to capture common HTML
+attributes, like `id` and `className`, without having to hard code them into
+the component's bespoke props.
+
+# The solution
+
+The solution is actually quite simple - embarssingly simple - and yet quite
+difficult to find if you don't quite know what you're looking for. Or you're
+me and keep forgetting how you solved this problem the last time you
+encountered it.
+
+Turns out that React has a utility type for containing all the attributes
+that can be passed to HTML elements: `HTMLAttributes`. This is a generic
+type, which means it accepts a type parameter. In this case, the type
+parameter is just a plain-old object that you can use to nest an extension into
+`HTMLAttributes` (which is pretty handy).
+
+Before `HTMLAttribtues`, I would have had to do this:
+
+```ts
+// We have to include children explicitly in our bespoke prop-type for the 
+// <Wrapper/>
+type OwnProps = {
+    children?: React.ReactNode
+}
+
+const Wrapper = ({ children }: OwnProps) => <div>{children}</div>
+```
+
+After `HTMLAttributes`, we get to do this:
+
+```ts
+// We don't need a bespoke prop-type!
+const Wrapper = ({ children }: React.HTMLAttributes<{}>) => (
+    <div>{children}</div>
+)
+```
+
+It's wonderful!
