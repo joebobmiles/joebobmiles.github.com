@@ -30,7 +30,7 @@ time
 
 
 
-p, ul, ol, blockquote, pre, figure
+p, ul, ol, blockquote, pre, figure, aside
   &:not(:first-child)
     margin-top: 1.5em
 
@@ -143,3 +143,18 @@ hr
 .footnote-backref
   color: hsl(0,0,20%)
   text-decoration: none
+
+aside
+  grid-column-start: 5
+  width: 50%
+
+  font-style: italic
+  font-size: 0.75em
+
+  padding-left: 8px * 2
+
+  @media screen and ( max-width: $min-view-width )
+    grid-column: 2
+    width: 100%
+
+    padding-left: 0
