@@ -1,9 +1,9 @@
 {
-  "name": "notes-2-self",
+  "name": "jrm-dev",
   "private": true,
-  "description": "No-shit notes, how-to's, pointers, tips, and tricks.",
+  "description": "My personal blog.",
   "version": "1.0.0",
-  "author": "Joseph R Miles <joe@notes2self.com>",
+  "author": "Joseph R Miles <joe@jrm.dev>",
   "dependencies": {
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
@@ -28,16 +28,15 @@
     "gh-pages": "^2.2.0",
     "typescript": "^3.8.3"
   },
-  "homepage": "https://github.com/joebobmiles/Notes2Self#readme",
+  "homepage": "https://github.com/joebobmiles/joebobmiles.github.com#readme",
   "keywords": [
     "gatsby",
-    "empty",
-    "starter"
+    "blog"
   ],
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joebobmiles/Notes2Self.git"
+    "url": "git+https://github.com/joebobmiles/joebobmiles.github.com.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -47,7 +46,7 @@
     "clean": "gatsby clean",
     "test": "exit 0",
     "deploy": "npm run build && gh-pages -d public -b master",
-    "deploy:ci": "npm run build && gh-pages -d public -b master -r https://$GITHUB_TOKEN@github.com/joebobmiles/Notes2Self.git"
+    "deploy:ci": "npm run build && gh-pages -d public -b master -r https://$GITHUB_TOKEN@github.com/joebobmiles/joebobmiles.github.com.git"
   },
   "jest": {
     "transform": {
