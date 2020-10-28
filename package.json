@@ -47,7 +47,7 @@
     "clean": "gatsby clean",
     "test": "exit 0",
     "deploy": "npm run build && gh-pages -d public -b master",
-    "deploy:travis": "npm run build && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/joebobmiles/Notes2Self.git"
+    "deploy:ci": "npm run build && gh-pages -d public -b master -r https://$GITHUB_TOKEN@github.com/joebobmiles/Notes2Self.git"
   },
   "jest": {
     "transform": {
