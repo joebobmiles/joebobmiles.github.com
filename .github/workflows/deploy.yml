@@ -23,4 +23,6 @@ jobs:
 
     - name: Build and deploy site
       run: npm run deploy:ci
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
     
