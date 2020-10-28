@@ -3,13 +3,13 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
-    title: `Notes2Self`,
-    description: `No-shit notes, how-to's, pointers, tips, and tricks.`,
+    title: `JRM.DEV`,
+    description: `My personal blog.`,
     author: {
-        name: `Joseph Miles`,
-        email: `joe@notes2self.dev`,
+        name: `Joseph R Miles`,
+        email: `joe@jrm.dev`,
     },
-    siteUrl: `https://notes2self.dev`,
+    siteUrl: `https://jrm.dev`,
   },
   plugins: [
     {
@@ -64,6 +64,13 @@ module.exports = {
       }
     },
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-remark-images`,
+      options: {
+        showCaptions: true,
+        markdownCaptions: true
+      }
+    },
   ],
 }
