@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{RXBc:function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),o=n.n(a);t.default=function(){return o.a.createElement(o.a.Fragment,null,o.a.createElement("h1",null,"Notes2Self"),o.a.createElement("p",null,"No shit notes, how-to's, pointers, tips, and tricks."))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-14c087bfae36a79ad7d8.js.map
