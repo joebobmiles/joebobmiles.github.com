@@ -1,3 +1,3 @@
-# Notes2Self
+# JRM.DEV
 
-No-shit notes, how-to's, pointers, tips, and tricks.
+My personal blog and fledgling digial garden.
