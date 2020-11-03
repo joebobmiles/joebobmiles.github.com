@@ -58,7 +58,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-goatcounter`,
       options: {
-        code: isProduction ? "notes2self" : "",
+        code: isProduction ? "jrm-dev" : "",
         head: true,
         pixel: true
       }
