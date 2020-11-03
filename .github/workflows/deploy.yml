@@ -22,7 +22,7 @@ jobs:
       run: git config --global user.name "GitHub Actions"
 
     - name: Build and deploy site
-      run: npm run deploy:ci
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+      run: npm run deploy
+      # env:
+      #   GITHUB_TOKEN: ${{ github.token }}
     
