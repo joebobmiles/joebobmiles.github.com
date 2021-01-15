@@ -1,6 +1,6 @@
 @use "vars";
 
-:global {
+.post {
   h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5em;
 
@@ -18,22 +18,28 @@
     font-style: normal;
   }
 
-  h1#title {
-    font-size: 4em;
+  & > header {
+    h1 {
+      font-size: 4em;
 
-    margin: 0;
-    margin-bottom: 1em;
-  }
+      margin: 0;
+      margin-bottom: 1rem;
+    }
 
-  time {
-    font-size: 1em;
-    color: hsl(0,0,60%);
+    time {
+      font-size: 1em;
+      color: hsl(0,0,60%);
+    }
   }
 
   p, ul, ol, blockquote, pre, figure, aside {
     &:not(:first-child) {
       margin-top: 1.5em;
     }
+  }
+
+  a:any-link {
+    color: hsl(0,0,60%)
   }
 
   blockquote {

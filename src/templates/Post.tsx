@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet"
 
 import Layout from "../components/Layout"
 
-import "../styles/Post.module.scss"
+import styles from "../styles/Post.module.scss";
 
 type PostProps = { data?: any }
 
@@ -27,9 +27,11 @@ export default ({ data }: PostProps) => {
                 <meta name="description" content={excerpt} />
             </Helmet>
 
-            <article>
+            <article className={styles.post}>
+              <header>
                 <time>{frontmatter.date}</time>
-                <h1 id="title">{frontmatter.title}</h1>
+                <h1>{frontmatter.title}</h1>
+              </header>
 
                 <MDXProvider>
                     <MDXRenderer>
