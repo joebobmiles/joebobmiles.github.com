@@ -2,10 +2,9 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery, Link } from "gatsby"
 
-import "../styles/Layout.module.scss";
+import style from "../styles/Layout.module.scss";
 
 export default ({ children }) => {
-
     const { site, siteBuildMetadata } = useStaticQuery(graphql`
         query {
             site {
@@ -40,6 +39,7 @@ export default ({ children }) => {
                 <meta name="description" content={siteDescription} />
             </Helmet>
 
+          <main className={style.layout}>
             <header>
                 <Link to="/">
                     <h1>{siteTitle}</h1>
@@ -53,6 +53,7 @@ export default ({ children }) => {
                     &copy; {authorName} {siteBuildTime}
                 </p>
             </footer>
+          </main>
         </>
     )
 

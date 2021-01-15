@@ -1,28 +1,6 @@
 @use "vars";
-@use "fluid-type" as ft;
 
-:global {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    @include ft.fluid-type(
-      $min-vw: 320px,
-      $max-vw: 1200px,
-      $min-font-size: 14px,
-      $max-font-size: 18px
-    );
-
-    font-family: vars.$font-stack;
-    line-height: 1.75;
-
-    color: hsl(0,0,20%);
-  }
-
-
+.layout {
   header, main, footer, article {
     display: grid;
     grid-template-columns: 1fr 8px 75ch 8px 1fr;

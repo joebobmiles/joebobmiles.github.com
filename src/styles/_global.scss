@@ -1,5 +1,5 @@
-@use "vars";
 @use "fonts";
+@use "vars";
 @use "fluid-type" as ft;
 
 * {
@@ -20,44 +20,4 @@ body {
   line-height: 1.75;
 
   color: hsl(0,0,20%);
-}
-
-header, main, footer, article {
-  display: grid;
-  grid-template-columns: 1fr 8px 75ch 8px 1fr;
-
-  @media screen and ( max-width: vars.$min-view-width ) {
-    grid-template-columns: 8px auto 8px;
-  }
-
-  * {
-    grid-column: 3;
-
-    @media screen and ( max-width: vars.$min-view-width ) {
-      grid-column: 2;
-    }
-  }
-}
-
-header {
-  a {
-    color: hsl(0,0,20%);
-    text-decoration: none;
-  }
-
-  h1 {
-    font-size: 1em;
-    font-style: normal;
-    text-transform: uppercase;
-  }
-
-  margin-bottom: 4em;
-}
-
-footer {
-  margin-top: 4em;
-}
-
-a {
-  color: hsl(0,0,60%);
 }
