@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet"
 
 import Layout from "../components/Layout"
 
-import styles from "../styles/Post.module.scss";
+import styles from "./Post.module.scss";
 
 type PostProps = { data?: any }
 
@@ -20,26 +20,26 @@ export default ({ data }: PostProps) => {
 
 
     return (
-        <Layout>
-            <Helmet>
-                <title>{mdx.frontmatter.title} &mdash; {siteMetadata.title}</title>
+      <Layout>
+          <Helmet>
+              <title>{mdx.frontmatter.title} &mdash; {siteMetadata.title}</title>
 
-                <meta name="description" content={excerpt} />
-            </Helmet>
+              <meta name="description" content={excerpt} />
+          </Helmet>
 
-            <article className={styles.post}>
-              <header>
-                <time>{frontmatter.date}</time>
-                <h1>{frontmatter.title}</h1>
-              </header>
+          <article className={styles.post}>
+            <header>
+              <time>{frontmatter.date}</time>
+              <h1>{frontmatter.title}</h1>
+            </header>
 
-                <MDXProvider>
-                    <MDXRenderer>
-                        {body}
-                    </MDXRenderer>
-                </MDXProvider>
-            </article>
-        </Layout>
+              <MDXProvider>
+                  <MDXRenderer>
+                      {body}
+                  </MDXRenderer>
+              </MDXProvider>
+          </article>
+      </Layout>
     )
 }
 

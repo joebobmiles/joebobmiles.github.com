@@ -3,10 +3,8 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/Layout"
 
-
 import "../styles/_global.scss"
-import styles from "../styles/Home.module.scss";
-
+import styles from "./Home.module.scss";
 
 const Site = ({ data: { allMdx: { edges }} }) => (
   <Layout>
