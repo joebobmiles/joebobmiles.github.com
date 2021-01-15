@@ -4,7 +4,8 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 
 
-import "../styles/global.sass"
+import "../styles/global.scss"
+import "../styles/Home.module.scss";
 
 
 const Site = ({ data }) => {

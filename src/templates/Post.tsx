@@ -6,9 +6,7 @@ import { Helmet } from "react-helmet"
 
 import Layout from "../components/Layout"
 
-
-import "../styles/post.sass"
-
+import "../styles/Post.module.scss"
 
 type PostProps = { data?: any }
 

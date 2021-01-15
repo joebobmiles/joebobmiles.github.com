@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery, Link } from "gatsby"
 
+import "../styles/Layout.module.scss";
 
 export default ({ children }) => {
 

@@ -1,0 +1,71 @@
+@use "vars";
+@use "fluid-type" as ft;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+
+$font-stack: IBM Plex Mono, monospace;
+
+:global {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @include ft.fluid-type(
+      $min-vw: 320px,
+      $max-vw: 1200px,
+      $min-font-size: 14px,
+      $max-font-size: 18px
+    );
+
+    font-family: $font-stack;
+    line-height: 1.75;
+
+    color: hsl(0,0,20%);
+  }
+
+
+  header, main, footer, article {
+    display: grid;
+    grid-template-columns: 1fr 8px 75ch 8px 1fr;
+
+    @media screen and ( max-width: vars.$min-view-width ) {
+      grid-template-columns: 8px auto 8px;
+    }
+
+    * {
+      grid-column: 3;
+
+      @media screen and ( max-width: vars.$min-view-width ) {
+        grid-column: 2;
+      }
+    }
+  }
+
+
+  header {
+    a {
+      color: hsl(0,0,20%);
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: 1em;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+
+    margin-bottom: 4em;
+  }
+
+
+  footer {
+    margin-top: 4em;
+  }
+
+  a {
+    color: hsl(0,0,60%)
+  }
+}
