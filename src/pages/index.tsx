@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 
 
-import "../styles/global.scss"
+import "../styles/_global.scss"
 import "../styles/Home.module.scss";
 
 
