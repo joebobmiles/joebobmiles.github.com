@@ -5,31 +5,31 @@ import Layout from "../components/Layout"
 
 
 import "../styles/_global.scss"
-import "../styles/Home.module.scss";
+import styles from "../styles/Home.module.scss";
 
 
-const Site = ({ data }) => {
-
-    const allMdx = data.allMdx
-
-    const { totalCount, edges } = allMdx
-
-    return (
-        <Layout>
-            <main>
-                {edges.map(({ node }) => node)
-                .map(({ frontmatter, fields, excerpt, id }) => (
-                    <Link key={id} to={fields.slug} className="article-blurb">
-                        <h3>
-                            {frontmatter.title} <span>&mdash; <time>{frontmatter.date}</time></span>
-                        </h3>
-                        <p>{excerpt}</p>
-                    </Link>
-                ))}
-            </main>
-        </Layout>
-    )
-}
+const Site = ({ data: { allMdx: { edges }} }) => (
+  <Layout>
+    <main>
+      {
+        edges
+        .map(({ node }) => node)
+        .map(({ frontmatter, fields, excerpt, id }) => (
+          <Link
+            key={id}
+            to={fields.slug}
+            className={styles.articleBlurb}
+          >
+            <h3>
+              {frontmatter.title} <span>&mdash; <time>{frontmatter.date}</time></span>
+            </h3>
+            <p>{excerpt}</p>
+          </Link>
+        ))
+      }
+    </main>
+  </Layout>
+);
 
 export default Site
 

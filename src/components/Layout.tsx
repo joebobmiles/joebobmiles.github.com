@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery, Link } from "gatsby"
 
-import style from "../styles/Layout.module.scss";
+import styles from "../styles/Layout.module.scss";
 
 export default ({ children }) => {
     const { site, siteBuildMetadata } = useStaticQuery(graphql`
@@ -39,7 +39,7 @@ export default ({ children }) => {
                 <meta name="description" content={siteDescription} />
             </Helmet>
 
-          <main className={style.layout}>
+          <main className={styles.layout}>
             <header>
                 <Link to="/">
                     <h1>{siteTitle}</h1>
