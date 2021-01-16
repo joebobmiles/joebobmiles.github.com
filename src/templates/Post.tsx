@@ -29,17 +29,19 @@ export default ({
       <meta name="description" content={excerpt} />
     </Helmet>
 
-    <header className={styles.articleHeader}>
-      <time>{ frontmatter.date }</time>
-      <h1>{ frontmatter.title }</h1>
-    </header>
-
     <article className={styles.post}>
-      <MDXProvider>
-        <MDXRenderer>
-          { body }
-        </MDXRenderer>
-      </MDXProvider>
+      <header>
+        <time>{ frontmatter.date }</time>
+        <h1>{ frontmatter.title }</h1>
+      </header>
+
+      <main className={styles.prose}>
+        <MDXProvider>
+          <MDXRenderer>
+            { body }
+          </MDXRenderer>
+        </MDXProvider>
+      </main>
     </article>
   </Layout>
 );
