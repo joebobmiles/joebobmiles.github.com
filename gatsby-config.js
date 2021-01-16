@@ -1,6 +1,5 @@
 const isProduction = process.env.NODE_ENV === 'production'
 
-
 module.exports = {
   siteMetadata: {
     title: `JRM.DEV`,
@@ -64,7 +63,16 @@ module.exports = {
       }
     },
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        sassOptions: {
+          includePaths: [
+            "./src/styles"
+          ]
+        }
+      }
+    },
     {
       resolve: `gatsby-remark-images`,
       options: {
