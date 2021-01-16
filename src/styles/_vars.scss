@@ -5,7 +5,9 @@ $min-view-width: 750px;
 
 @function font($font) {
   $fonts: (
-    mono: (IBM Plex Mono, Monaco, Consolas, monospace)
+    serif: (Charter, Georgia, serif),
+    sans: (Helevetica, system-ui, sans-serif),
+    mono: (Monaco, Consolas, monospace)
   );
 
   @return map-get($fonts, $font);
