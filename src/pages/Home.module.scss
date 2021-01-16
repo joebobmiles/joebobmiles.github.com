@@ -1,5 +1,7 @@
+@use "vars";
+
 .articleBlurb {
-  color: hsl(0,0,20%);
+  color: vars.color(fg);
   text-decoration: none;
 
   &:not(:first-of-type) {
@@ -15,7 +17,7 @@
     margin: 0;
 
     span {
-      color: hsl(0,0,80%);
+      color: vars.color(light-fg);
 
       font-size: 1rem;
       font-style: normal;

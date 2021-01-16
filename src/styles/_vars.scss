@@ -1,2 +1,15 @@
+@use "sass:color";
+
 $min-view-width: 750px;
+
 $font-stack: IBM Plex Mono, Monaco, Consolas, monospace;
+
+@function color($color) {
+  $colors: (
+    fg: #111,
+    bg: white,
+    light-fg: color.scale(#111, $lightness: 50%)
+  );
+
+  @return map-get($colors, $color);
+}

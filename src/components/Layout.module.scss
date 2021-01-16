@@ -21,7 +21,7 @@
 
   & > header {
     a {
-      color: hsl(0,0,20%);
+      color: vars.color(fg);
       text-decoration: none;
     }
 

@@ -28,7 +28,7 @@
 
     time {
       font-size: 1em;
-      color: hsl(0,0,60%);
+      color: vars.color(light-fg);
     }
   }
 
@@ -39,7 +39,7 @@
   }
 
   a:any-link {
-    color: hsl(0,0,60%)
+    color: vars.color(light-fg);
   }
 
   blockquote {
@@ -51,7 +51,7 @@
 
     padding-left: 6px + 8px * 2;
 
-    border-left: 2px solid hsl(0,0,20%);
+    border-left: 2px solid vars.color(fg);
 
     font-style: italic;
   }
@@ -80,7 +80,7 @@
           width: 16px;
           height: 16px;
 
-          outline: 1px solid hsl(0,0,20%);
+          outline: 1px solid vars.color(fg);
         }
       }
     }
@@ -106,8 +106,8 @@
 
     padding: 1em 8px;
 
-    background: hsl(0,0,20%);
-    color: white;
+    background: vars.color(fg);
+    color: vars.color(bg);
 
     code {
       padding: 0;
@@ -136,7 +136,7 @@
 
     figcaption {
       font-style: italic;
-      color: hsl(0,0,60%);
+      color: vars.color(light-fg);
     }
 
     &.wide {
@@ -151,7 +151,7 @@
     padding-left: 4px;
     
     a {
-      color: hsl(0,0,20%);
+      color: vars.color(fg);
       text-decoration: none;
     }
   }
@@ -166,7 +166,7 @@
 
 
   .footnote-backref {
-    color: hsl(0,0,20%);
+    color: vars.color(fg);
     text-decoration: none;
   }
 
