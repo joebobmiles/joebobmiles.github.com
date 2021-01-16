@@ -43,16 +43,18 @@ export default ({ children }) => {
         <meta name="description" content={description} />
       </Helmet>
 
-      <main className={styles.layout}>
-        <header>
+      <main className={styles.container}>
+        <header className={styles.header}>
           <Link to="/">
             <h1>{title}</h1>
           </Link>
         </header>
 
-        {children}
+        <main className={styles.main}>
+          {children}
+        </main>
 
-        <footer>
+        <footer className={styles.footer}>
           <p>
             &copy; {authorName} {buildTime}
           </p>

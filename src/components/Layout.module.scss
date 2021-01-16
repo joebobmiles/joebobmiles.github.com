@@ -1,25 +1,29 @@
 @use "vars";
 
-.layout {
-  & > header, main, footer, article {
-    display: grid;
-    grid-template-columns: 1fr 8px 75ch 8px 1fr;
+%site-grid {
+  display: grid;
+  grid-template-columns: 1fr 8px 75ch 8px 1fr;
+
+  @media screen and ( max-width: vars.$min-view-width ) {
+    grid-template-columns: 8px auto 8px;
+  }
+
+  * {
+    grid-column: 3;
 
     @media screen and ( max-width: vars.$min-view-width ) {
-      grid-template-columns: 8px auto 8px;
+      grid-column: 2;
     }
+  }
+}
 
-    * {
-      grid-column: 3;
-
-      @media screen and ( max-width: vars.$min-view-width ) {
-        grid-column: 2;
-      }
-    }
+.container {
+  .header, .main, .footer {
+    @extend %site-grid;
   }
 
 
-  & > header {
+  .header {
     a {
       color: vars.color(fg);
       text-decoration: none;
@@ -35,7 +39,7 @@
   }
 
 
-  footer {
+  .footer {
     margin-top: 4em;
   }
 }
