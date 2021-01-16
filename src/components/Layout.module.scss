@@ -1,14 +1,1 @@
 @use "vars";
-
-%site-grid { }
-
-.container {
-  .header, .main, .footer {
-    @extend %site-grid;
-  }
-
-  .header { }
-
-
-  .footer { }
-}
