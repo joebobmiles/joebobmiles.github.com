@@ -1,4 +1,3 @@
-@use "fonts";
 @use "vars";
 @use "fluid-type" as ft;
 
@@ -16,8 +15,9 @@ body {
     $max-font-size: 18px
   );
 
-  font-family: vars.$font-stack;
-  line-height: 1.75;
+  font-family: vars.font(mono);
+  line-height: 1.618;
 
-  color: hsl(0,0,20%);
+  color: vars.color(fg);
+  background-color: vars.color(bg);
 }
