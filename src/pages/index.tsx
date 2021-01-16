@@ -8,24 +8,22 @@ import styles from "./index.module.scss";
 
 const Site = ({ data: { allMdx: { edges }} }) => (
   <Layout>
-    <main>
-      {
-        edges
-        .map(({ node }) => node)
-        .map(({ frontmatter, fields, excerpt, id }) => (
-          <Link
-            key={id}
-            to={fields.slug}
-            className={styles.articleBlurb}
-          >
-            <h3>
-              {frontmatter.title} <span>&mdash; <time>{frontmatter.date}</time></span>
-            </h3>
-            <p>{excerpt}</p>
-          </Link>
-        ))
-      }
-    </main>
+    {
+      edges
+      .map(({ node }) => node)
+      .map(({ frontmatter, fields, excerpt, id }) => (
+        <Link
+          key={id}
+          to={fields.slug}
+          className={styles.articleBlurb}
+        >
+          <h3>
+            {frontmatter.title} <span>&mdash; <time>{frontmatter.date}</time></span>
+          </h3>
+          <p>{excerpt}</p>
+        </Link>
+      ))
+    }
   </Layout>
 );
 
