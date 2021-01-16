@@ -1,1 +1,16 @@
 @use "vars";
+
+%site-grid {
+  display: grid;
+  grid-template-columns: auto 61.8vmin auto;
+  grid-template-rows: auto;
+  row-gap: 1rem;
+};
+
+.container {
+  @extend %site-grid;
+
+  .header, .main, .footer {
+    grid-column: 2;
+  }
+}
