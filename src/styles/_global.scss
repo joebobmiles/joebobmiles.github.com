@@ -8,9 +8,11 @@ html {
 
   z-index: 0;
   box-sizing: border-box;
+  position: relative;
 
   *, *:before, *:after {
     z-index: inherit;
     box-sizing: inherit;
+    position: inherit;
   }
 }
