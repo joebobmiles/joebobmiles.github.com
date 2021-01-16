@@ -5,56 +5,59 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import styles from "./Layout.module.scss";
 
 export default ({ children }) => {
-    const { site, siteBuildMetadata } = useStaticQuery(graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                    description
-                    author {
-                        name
-                    }
-                }
-            }
-            siteBuildMetadata {
-                buildTime(formatString: "YYYY")
-            }
+  const {
+    site: {
+      siteMetadata: {
+        title,
+        description,
+        author: { name: authorName }
+      }
+    },
+    siteBuildMetadata: {
+      buildTime
+    }
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author {
+            name
+          }
         }
-    `)
+      }
+      siteBuildMetadata {
+        buildTime(formatString: "YYYY")
+      }
+    }
+  `);
 
-    const siteTitle = site.siteMetadata.title
-    const siteDescription = site.siteMetadata.description
+  return (
+    <>
+      <Helmet>
+        <title>{title}</title>
 
-    const authorName = site.siteMetadata.author.name
+        <meta charSet="utf-8" />
+        <meta name="author" content={authorName} />
+        <meta name="description" content={description} />
+      </Helmet>
 
-    const siteBuildTime = siteBuildMetadata.buildTime
+      <main className={styles.layout}>
+        <header>
+          <Link to="/">
+            <h1>{title}</h1>
+          </Link>
+        </header>
 
-    return (
-        <>
-            <Helmet>
-                <title>{siteTitle}</title>
+        {children}
 
-                <meta charSet="utf-8" />
-                <meta name="author" content={authorName} />
-                <meta name="description" content={siteDescription} />
-            </Helmet>
-
-          <main className={styles.layout}>
-            <header>
-                <Link to="/">
-                    <h1>{siteTitle}</h1>
-                </Link>
-            </header>
-
-            {children}
-
-            <footer>
-                <p>
-                    &copy; {authorName} {siteBuildTime}
-                </p>
-            </footer>
-          </main>
-        </>
-    )
-
-}
+        <footer>
+          <p>
+            &copy; {authorName} {buildTime}
+          </p>
+        </footer>
+      </main>
+    </>
+  );
+};
