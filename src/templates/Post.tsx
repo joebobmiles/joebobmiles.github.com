@@ -10,57 +10,57 @@ import styles from "./Post.module.scss";
 
 type PostProps = { data?: any }
 
+export default ({
+  data: {
+    mdx: {
+      frontmatter,
+      body,
+      excerpt
+    },
+    site: {
+      siteMetadata: meta
+    }
+  }
+}: PostProps) =>
+(
+  <Layout>
+    <Helmet>
+      <title>{ frontmatter.title } &mdash; { meta.title }</title>
+      <meta name="description" content={excerpt} />
+    </Helmet>
 
-export default ({ data }: PostProps) => {
+    <article className={styles.post}>
+      <header>
+        <time>{ frontmatter.date }</time>
+        <h1>{ frontmatter.title }</h1>
+      </header>
 
-    const { mdx, site } = data
-
-    const { frontmatter, body, excerpt } = mdx
-    const { siteMetadata } = site
-
-
-    return (
-      <Layout>
-          <Helmet>
-              <title>{mdx.frontmatter.title} &mdash; {siteMetadata.title}</title>
-
-              <meta name="description" content={excerpt} />
-          </Helmet>
-
-          <article className={styles.post}>
-            <header>
-              <time>{frontmatter.date}</time>
-              <h1>{frontmatter.title}</h1>
-            </header>
-
-              <MDXProvider>
-                  <MDXRenderer>
-                      {body}
-                  </MDXRenderer>
-              </MDXProvider>
-          </article>
-      </Layout>
-    )
-}
-
+      <MDXProvider>
+        <MDXRenderer>
+          { body }
+        </MDXRenderer>
+      </MDXProvider>
+    </article>
+  </Layout>
+);
 
 export const query = graphql`
 query($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-        frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-        }
-        body
-        excerpt
+  mdx(fields: { slug: { eq: $slug } }) {
+    frontmatter {
+      title
+      date(formatString: "DD MMMM, YYYY")
     }
-    site {
-        siteMetadata {
-            title
-            author {
-                name
-            }
-        }
+    body
+    excerpt
+  }
+  site {
+    siteMetadata {
+      title
+      author {
+        name
+      }
     }
+  }
 }
 `
