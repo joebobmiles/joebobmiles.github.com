@@ -1,23 +1,5 @@
+@use "reset";
 @use "vars";
 @use "fluid-type" as ft;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  @include ft.fluid-type(
-    $min-vw: 320px,
-    $max-vw: 1200px,
-    $min-font-size: 14px,
-    $max-font-size: 18px
-  );
-
-  font-family: vars.font(mono);
-  line-height: 1.618;
-
-  color: vars.color(fg);
-  background-color: vars.color(bg);
-}
+body { }

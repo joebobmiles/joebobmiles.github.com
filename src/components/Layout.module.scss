@@ -1,45 +1,14 @@
 @use "vars";
 
-%site-grid {
-  display: grid;
-  grid-template-columns: 1fr 8px 75ch 8px 1fr;
-
-  @media screen and ( max-width: vars.$min-view-width ) {
-    grid-template-columns: 8px auto 8px;
-  }
-
-  * {
-    grid-column: 3;
-
-    @media screen and ( max-width: vars.$min-view-width ) {
-      grid-column: 2;
-    }
-  }
-}
+%site-grid { }
 
 .container {
   .header, .main, .footer {
     @extend %site-grid;
   }
 
-
-  .header {
-    a {
-      color: vars.color(fg);
-      text-decoration: none;
-    }
-
-    h1 {
-      font-size: 1em;
-      font-style: normal;
-      text-transform: uppercase;
-    }
-
-    margin-bottom: 4em;
-  }
+  .header { }
 
 
-  .footer {
-    margin-top: 4em;
-  }
+  .footer { }
 }
