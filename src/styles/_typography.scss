@@ -40,3 +40,13 @@ $weights: (
 @each $weight, $value in $weights {
   .font-#{$weight} { font-weight: $value }
 }
+
+$styles: (
+  regular,
+  italic,
+  oblique
+);
+
+@each $style in $styles {
+  .font-#{$style} { font-style: $style }
+}

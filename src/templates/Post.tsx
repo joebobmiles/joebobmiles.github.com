@@ -29,7 +29,7 @@ export default ({
       <meta name="description" content={excerpt} />
     </Helmet>
 
-    <article className={styles.post}>
+    <article className={styles.article}>
       <header>
         <time>{ frontmatter.date }</time>
         <h1>{ frontmatter.title }</h1>

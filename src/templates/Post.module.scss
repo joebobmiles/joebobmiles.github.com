@@ -1,1 +1,103 @@
+@use "typography";
 @use "vars";
+
+.article {
+  width: 60ch;
+
+  header {
+    margin-bottom: 1.618rem;
+
+    h1 {
+      @extend .text-2x, .font-semibold;
+    }
+  }
+}
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.25;
+
+  p, h1, h2, h3, h4, h5, h6, blockquote, pre, figure {
+    &:not(:first-child) {
+      margin-top: 0.618em;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h5 {
+    @extend .font-semibold;
+    line-height: 1;
+  }
+
+  @for $i from 1 through 4 {
+    h#{$i} { font-size: typography.scaled-size(1.25, (5 - $i), 1em) }
+  }
+
+  em { @extend .font-italic }
+  strong { @extend .font-bold }
+
+  *:not(pre) > code {
+    padding: max(0.05em, 2px);
+
+    color: vars.color(bg);
+    background-color: vars.color(fg);
+
+    border-radius: 0.25em;
+
+    &:before, &:after { content: "`"; }
+  }
+
+  pre {
+    color: vars.color(bg);
+    background-color: vars.color(fg);
+
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+
+    overflow-x: auto;
+  }
+
+  blockquote {
+    @extend .font-italic;
+
+    padding-left: 0.5em;
+
+    border-left: 0.1em solid;
+  }
+
+  figure {
+    width: 100%;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
+
+    figcaption {
+      color: vars.color(light-fg);
+      text-align: center;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+    margin-left: 1.5em;
+
+    li {
+      margin-top: 0.25em;
+    }
+  }
+
+  ul:not(.contains-task-list) {
+    list-style: disc;
+    margin-left: 1em;
+
+    li {
+      margin-top: 0.25em;
+      padding-left: 0.25em;
+    }
+  }
+
+  ul.contains-task-list {
+    color: red;
+  }
+}

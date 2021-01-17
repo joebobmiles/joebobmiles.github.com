@@ -6,7 +6,7 @@ $min-view-width: 750px;
   $colors: (
     fg: #111,
     bg: white,
-    light-fg: color.scale(#111, $lightness: 50%)
+    light-fg: color.scale(#111, $lightness: 40%)
   );
 
   @return map-get($colors, $color);

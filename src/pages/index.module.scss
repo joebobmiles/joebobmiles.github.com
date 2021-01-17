@@ -19,7 +19,7 @@
     row-gap: 0.618rem;
 
     h1 {
-      @extend .text-base, .font-semibold;
+      @extend .text-base, .font-bold;
       grid-area: header;
     }
 
