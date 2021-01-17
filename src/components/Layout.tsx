@@ -56,7 +56,7 @@ export default ({ children }) => {
 
         <footer className={styles.footer}>
           <p>
-            &copy; {authorName} {buildTime}
+            &copy; {buildTime} {title}
           </p>
         </footer>
       </main>
