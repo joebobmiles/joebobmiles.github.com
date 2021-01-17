@@ -1,10 +1,11 @@
+@use "typography";
 @use "vars";
 
 %site-grid {
   display: grid;
   grid-template-columns: auto min(61.8vmax, 100vw) auto;
   grid-template-rows: auto;
-  row-gap: 1rem;
+  row-gap: 2rem;
 };
 
 .container {
@@ -13,4 +14,8 @@
   .header, .main, .footer {
     grid-column: 2;
   }
+}
+
+.header {
+  @extend .text-xl, .font-black;
 }

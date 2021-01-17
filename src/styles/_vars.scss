@@ -1,17 +1,6 @@
 @use "sass:color";
-@use "fonts";
 
 $min-view-width: 750px;
-
-@function font($font) {
-  $fonts: (
-    serif: (Charter, Georgia, serif),
-    sans: (Helevetica, system-ui, sans-serif),
-    mono: (Monaco, Consolas, monospace)
-  );
-
-  @return map-get($fonts, $font);
-}
 
 @function color($color) {
   $colors: (

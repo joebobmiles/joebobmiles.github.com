@@ -15,12 +15,13 @@ const Site = ({ data: { allMdx: { edges }} }) => (
         <Link
           key={id}
           to={fields.slug}
-          className={styles.articleBlurb}
+          className={styles.article}
         >
-          <h3>
-            {frontmatter.title} <span>&mdash; <time>{frontmatter.date}</time></span>
-          </h3>
-          <p>{excerpt}</p>
+          <article>
+            <h1>{frontmatter.title}</h1>
+            <p>{excerpt}</p>
+            <time>{frontmatter.date}</time>
+          </article>
         </Link>
       ))
     }

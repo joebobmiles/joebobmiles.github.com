@@ -1,0 +1,42 @@
+@use "sass:math";
+
+@function scaled-size($ratio, $factor, $base) {
+  @return math.pow($ratio, $factor) * $base;
+}
+
+@mixin type-scale($ratio, $base: 1rem) {
+  $sizes: (
+    xs: -2,
+    sm: -1,
+    base: 0,
+    md:  0,
+    lg:  1,
+    xl:  2,
+    2x:  3,
+    3x:  4,
+    4x:  5,
+  );
+
+  @each $sizes, $factor in $sizes {
+    .text-#{$sizes} { font-size: scaled-size($ratio, $factor, $base) }
+  }
+}
+
+@include type-scale(1.618);
+
+$weights: (
+  thin: 100,
+  extralight: 200,
+  light: 300,
+  regular: 400,
+  base: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  "black": 900,
+);
+
+@each $weight, $value in $weights {
+  .font-#{$weight} { font-weight: $value }
+}
