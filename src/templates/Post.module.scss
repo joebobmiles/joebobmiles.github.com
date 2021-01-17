@@ -100,4 +100,9 @@
   ul.contains-task-list {
     color: red;
   }
+
+  sup {
+    @extend .text-sm;
+    bottom: 1ex;
+  }
 }
