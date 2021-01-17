@@ -97,8 +97,26 @@
     }
   }
 
-  ul.contains-task-list {
-    color: red;
+  :global(ul.contains-task-list) {
+    list-style: none;
+    margin-left: 1em;
+
+    li {
+      margin-top: 0.25em;
+      padding-left: 0.5em;
+
+      input[type="checkbox"][disabled] {
+        appearance: none;
+
+        border: 1px solid;
+
+        top: 0.15em;
+        width: 1em;
+        height: 1em;
+
+        margin-left: -2em;
+      }
+    }
   }
 
   sup {
