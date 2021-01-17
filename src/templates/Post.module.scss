@@ -119,6 +119,10 @@
     }
   }
 
+  :global(.footnotes) {
+    margin-top: 2em;
+  }
+
   sup {
     @extend .text-sm;
     bottom: 1ex;
