@@ -127,4 +127,18 @@
     @extend .text-sm;
     bottom: 1ex;
   }
+
+  a:any-link {
+    color: #0074D9;
+    padding: 0.1em;
+    border-radius: 0.1em;
+
+    &[href^="http"]:after, &[href^="https"]:after {
+      content: "↗";
+    }
+
+    &:hover {
+      background-color: fade-out(#0074D9, 0.85);
+    }
+  }
 }
