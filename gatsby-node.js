@@ -55,10 +55,10 @@ exports.onCreateWebpackConfig = ({
 {
   setWebpackConfig({
     module: {
-      resolve: {
-        alias: {
-          "@styles": path.resolve(__dirname, "src/styles"),
-        },
+    },
+    resolve: {
+      alias: {
+        "@styles": path.resolve(__dirname, "src/styles"),
       },
     },
   });
