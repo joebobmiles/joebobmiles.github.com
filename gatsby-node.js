@@ -55,6 +55,16 @@ exports.onCreateWebpackConfig = ({
 {
   setWebpackConfig({
     module: {
+      rules: [
+        {
+          test: /\.(js|ts)x$/,
+          loader: "twemoji-loader",
+          options: {
+            folder: "svg",
+            ext: ".svg"
+          }
+        }
+      ]
     },
     resolve: {
       alias: {

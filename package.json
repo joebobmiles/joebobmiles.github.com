@@ -26,6 +26,7 @@
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
     "gh-pages": "^2.2.0",
+    "twemoji-loader": "^0.0.4",
     "typescript": "^3.8.3",
     "typescript-plugin-css-modules": "^3.0.1"
   },
