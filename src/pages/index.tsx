@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/Layout"
 
+import "prismjs/themes/prism.css";
 import "@styles/global.scss"
 import styles from "./index.module.scss";
 

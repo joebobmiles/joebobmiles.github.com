@@ -52,6 +52,17 @@ module.exports = {
             }
           },
           `gatsby-remark-twemoji`,
+          `gatsby-remark-series`,
+          `gatsby-remark-table-of-contents`,
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-external-links`,
+            options: {
+              target: "_blank",
+              rel: "external nofollow noreferrer noopener"
+            }
+          }
         ]
       }
     },
@@ -81,5 +92,11 @@ module.exports = {
         markdownCaptions: true
       }
     },
+    {
+      resolve: `gatsby-transformer-markdown-references`,
+      options: {
+        types: [ "Mdx" ]
+      }
+    }
   ],
 }
