@@ -48,3 +48,18 @@ exports.createPages = async ({
     });
   });
 };
+
+exports.onCreateWebpackConfig = ({
+  stage, rules, loaders, plugins, actions: { setWebpackConfig }
+}) =>
+{
+  setWebpackConfig({
+    module: {
+      resolve: {
+        alias: {
+          "@styles": path.resolve(__dirname, "src/styles"),
+        },
+      },
+    },
+  });
+};

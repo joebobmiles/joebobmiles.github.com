@@ -7,8 +7,10 @@
         ],
         "typeRoots": [
           "src/types/"
-        ]
+        ],
+        "paths": {
+          "@styles": [ "./src/styles" ]
+        }
     },
     "include": ["src/"],
-    "exclude": ["src/tests/"]
 }
