@@ -17,7 +17,8 @@
   font-size: 1rem;
   line-height: 1.25;
 
-  p, h1, h2, h3, h4, h5, h6, blockquote, pre, figure {
+  p, h1, h2, h3, h4, h5, h6, blockquote, pre, figure, :global(.gatsby-highlight)
+  {
     &:not(:first-child) {
       margin-top: 0.618em;
     }
