@@ -1,62 +1,50 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
+exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
+  if (node.internal.type === "Mdx")
+  {
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: `content`
+    }).replace(/_/g, `-`)
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-
-    const { createNodeField } = actions
-
-    if (node.internal.type === "Mdx") {
-
-        const slug = createFilePath({
-            node,
-            getNode,
-            basePath: `content`
-        }).replace(/_/g, `-`)
-
-        createNodeField({
-            node,
-            name: `slug`,
-            value: slug
-        })
-
-    }
-
-}
-
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug
+    });
+  }
+};
 
 exports.createPages = async ({
     graphql,
-    actions
+    actions: { createPage }
 }) => {
-
-    const slugs = await graphql(`
+  const slugs = await graphql(`
     query {
-        allMdx {
-            edges {
-                node {
-                    fields {
-                        slug
-                    }
-                }
+      allMdx {
+        edges {
+          node {
+            fields {
+              slug
             }
+          }
         }
-    }`)
+      }
+    }`
+  );
 
-    const { createPage } = actions
+  slugs.data.allMdx.edges.forEach(({ node }) => {
+    const { fields: { slug } } = node
 
-    slugs.data.allMdx.edges.forEach(({ node }) => {
-
-        const { fields } = node
-
-        createPage({
-            path: fields.slug,
-            component: path.resolve("./src/templates/Post.tsx"),
-            context: {
-                slug: fields.slug
-            }
-        })
-
-    })
-
-}
+    createPage({
+      path: slug,
+      component: path.resolve("./src/templates/Post.tsx"),
+      context: {
+        slug
+      }
+    });
+  });
+};
