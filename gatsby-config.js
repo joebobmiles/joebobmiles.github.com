@@ -51,6 +51,7 @@ module.exports = {
               markdownCaptions: true
             }
           },
+          `gatsby-remark-twemoji`,
         ]
       }
     },
