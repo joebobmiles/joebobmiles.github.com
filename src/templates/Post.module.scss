@@ -27,6 +27,27 @@
   h1, h2, h3, h4, h5, h5 {
     @extend .font-semibold;
     line-height: 1;
+
+    :global(a.before) {
+      --padding: 0.25em;
+      margin-left: calc(-1em - var(--padding));
+      padding-right: var(--padding);
+
+      opacity: 0%;
+
+      svg {
+        width: 1em;
+        height: 1em;
+
+        fill: vars.color(light-fg);
+
+        vertical-align: text-bottom;
+      }
+
+      &:hover {
+        opacity: 100%;
+      }
+    }
   }
 
   @for $i from 1 through 4 {
@@ -129,7 +150,7 @@
     bottom: 1ex;
   }
 
-  a:any-link {
+  a:any-link:not(:global(.before)) {
     color: #0074D9;
     padding: 0.1em;
     border-radius: 0.1em;
