@@ -19,8 +19,8 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
 };
 
 exports.createPages = async ({
-    graphql,
-    actions: { createPage }
+  graphql,
+  actions: { createPage }
 }) => {
   const slugs = await graphql(`
     query {
