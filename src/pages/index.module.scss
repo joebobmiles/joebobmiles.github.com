@@ -1,34 +1,45 @@
-@use "sass:math";
-@use "typography";
-@use "vars";
 
-.article {
-  display: block;
+.container {
+  min-height: 100vh;
 
-  width: min(60ch, 100%);
-  margin: (math.pow(1.618, 2) * 1rem) 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 1rem;
 
-  &:first-child { margin-top: 0 }
-  &:last-child { margin-bottom: 0 }
+  .header, .main, .footer {
+    display: inherit;
+    grid-template-columns: inherit;
 
-  article {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas: "header" "time" "excerpt";
-    row-gap: 0.618rem;
+    grid-column: 1 / -1;
+  }
+}
 
-    h1 {
-      @extend .text-base, .font-bold;
-      grid-area: header;
-    }
+.header {
+  h1 {
+    grid-column: span 2;
+    place-self: center;
+  }
+}
 
-    p {
-      grid-area: excerpt;
-    }
+.main {
+  place-content: start;
 
-    time {
-      grid-area: time;
-    }
+  .left {
+    grid-column: 1;
+    justify-self: end;
+  }
+
+  .right {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+.footer {
+  p {
+    grid-column: 2;
+    justify-self: start;
+    align-self: end;
   }
 }

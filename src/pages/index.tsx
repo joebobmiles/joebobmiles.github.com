@@ -1,54 +1,41 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-
-import Layout from "../components/Layout"
+import * as React from "react";
 
 import "@styles/global.scss";
 import "@styles/code-theme.scss";
 import styles from "./index.module.scss";
 
-const Site = ({ data: { allMdx: { edges }} }) => (
-  <Layout>
-    {
-      edges
-      .map(({ node }) => node)
-      .map(({ frontmatter, fields, excerpt, id }) => (
-        <Link
-          key={id}
-          to={fields.slug}
-          className={styles.article}
-        >
-          <article>
-            <h1>{frontmatter.title}</h1>
-            <p>{excerpt}</p>
-            <time>{frontmatter.date}</time>
-          </article>
-        </Link>
-      ))
-    }
-  </Layout>
+export default () =>
+(
+  <main className={styles.container}>
+    <header className={styles.header}>
+      <h1><a href="/">JRM.DEV</a></h1>
+    </header>
+    <main className={styles.main}>
+      <h1 className={styles.left}>👋 Howdy!</h1>
+
+      <br/>
+
+      <h2 className={styles.right}>
+        My name is <a href="/about/">Joseph R Miles</a>.
+        <br/>
+        Your friendly neighborhood hacker.👨‍💻 
+      </h2>
+
+      <div className={styles.right}>
+        <p>
+          This is my own little corner of the Internet🌎, where I&nbsp;
+          <a href="/posts/">learn in public</a> and keep a&nbsp;
+          <a href="/projects/">directory of my work</a>.
+        </p>
+        <p>
+          Want to get in touch? Send an email to&nbsp;
+          <a href="mailto:joe@jrm.dev"><code>joe@jrm.dev</code></a> or Tweet&nbsp;
+          <a href="https://twitter.com/@joebobmiles"><code>@joebobmiles</code></a>.
+        </p>
+      </div>
+    </main>
+    <footer className={styles.footer}>
+      <p>&copy; 2020 &ndash; 2021 JRM.DEV</p>
+    </footer>
+  </main>
 );
-
-export default Site
-
-
-export const query = graphql`
-query {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-        edges {
-            node {
-                frontmatter {
-                    date(formatString: "DD MMMM, YYYY")
-                    title
-                }
-                fields {
-                    slug
-                }
-                excerpt
-                id
-            }
-        }
-        totalCount
-    } 
-}
-`
