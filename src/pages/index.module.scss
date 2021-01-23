@@ -1,8 +1,11 @@
 @use "theme";
 @use "molecules/prose";
+@use "atoms/spacing";
 @use "atoms/typography";
 
 .container {
+  @extend .p-0\.5;
+
   height: 100vh;
 
   display: grid;
