@@ -1,5 +1,5 @@
 @use "atoms/typography";
-@use "vars";
+@use "theme";
 
 .article {
   width: 60ch;
@@ -39,7 +39,7 @@
         width: 1em;
         height: 1em;
 
-        fill: vars.color(light-fg);
+        fill: theme.color(light-fg);
 
         vertical-align: text-bottom;
       }
@@ -60,8 +60,8 @@
   *:not(pre) > code {
     padding: max(0.05em, 2px);
 
-    color: vars.color(bg);
-    background-color: vars.color(fg);
+    color: theme.color(bg);
+    background-color: theme.color(fg);
 
     border-radius: 0.25em;
 
@@ -69,8 +69,8 @@
   }
 
   pre {
-    color: vars.color(bg);
-    background-color: vars.color(fg);
+    color: theme.color(bg);
+    background-color: theme.color(fg);
 
     padding: 0.5rem;
     border-radius: 0.25rem;
@@ -95,7 +95,7 @@
     }
 
     figcaption {
-      color: vars.color(light-fg);
+      color: theme.color(light-fg);
       text-align: center;
     }
   }

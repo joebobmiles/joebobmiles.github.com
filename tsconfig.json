@@ -8,6 +8,7 @@
         "typeRoots": [
           "src/types/"
         ],
+        "baseUrl": "./",
         "paths": {
           "@styles": [ "./src/styles" ]
         }
