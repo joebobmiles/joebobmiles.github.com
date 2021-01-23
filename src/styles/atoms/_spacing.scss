@@ -1,9 +1,25 @@
 @use "sass:math";
+@use "sass:map";
 @use "theme";
 @use "utility";
 
+@function semantic-size-to-sizes($semantic-sizes) {
+  $result: ();
+
+  @each $size in map.keys($semantic-sizes) {
+    $result: map.set($result, $size, theme.semantic-size($size));
+  }
+
+  @return $result;
+}
+
+$all-sizes: map.merge(
+  theme.$sizes,
+  semantic-size-to-sizes(theme.$semantic-sizes)
+);
+
 // Generate spacing classes
-@each $size, $measure in theme.$sizes {
+@each $size, $measure in $all-sizes {
   $escaped-size: utility.css-escape($size);
 
   /// WIDTHS

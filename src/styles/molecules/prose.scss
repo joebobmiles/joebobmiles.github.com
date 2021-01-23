@@ -1,9 +1,13 @@
+@use "atoms/typography";
 @use "atoms/spacing";
 
 .prose {
+  @extend .text-md;
   width: 30rem;
   
   p {
-    // @extend .mt-base;
+    &:not(:first-child) {
+      @extend .mt-md;
+    }
   }
 }

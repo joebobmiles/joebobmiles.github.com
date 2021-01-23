@@ -1,10 +1,11 @@
+@use "theme";
+
 .container {
   height: 100vh;
 
   display: grid;
   grid-template-columns: repeat(2, minmax(max-content, 33vw)) 1fr;
   grid-template-rows: repeat(3, minmax(max-content, 1fr));
-  row-gap: 1rem;
   place-content: start;
 
   .header, .main, .footer {
@@ -24,6 +25,7 @@
 
 .main {
   place-content: start;
+  row-gap: theme.semantic-size(md);
 
   .left {
     grid-column: 1;
