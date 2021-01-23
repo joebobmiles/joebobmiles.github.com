@@ -2,3 +2,96 @@
 @use "theme";
 @use "utility";
 
+// Generate spacing classes
+@each $size, $measure in theme.$sizes {
+  $escaped-size: utility.css-escape($size);
+
+  /// WIDTHS
+  .w-max-#{$escaped-size} { max-width: $measure }
+  .w-#{$escaped-size} { width: $measure }
+  .w-min-#{$escaped-size} { min-width: $measure }
+
+  /// HEIGHTS
+  .h-max-#{$escaped-size} { max-height: $measure }
+  .h-#{$escaped-size} { height: $measure }
+  .h-min-#{$escaped-size} { min-height: $measure }
+
+  /// MARGINS
+  .m-#{$escaped-size} {
+    margin: {
+      top: $measure;
+      bottom: $measure;
+      left: $measure;
+      right: $measure;
+    }
+  }
+
+  .my-#{$escaped-size} {
+    margin: {
+      top: $measure;
+      bottom: $measure;
+    }
+  }
+
+  .mx-#{$escaped-size} {
+    margin: {
+      left: $measure;
+      right: $measure;
+    }
+  }
+
+  .mt-#{$escaped-size} { margin-top: $measure }
+  .mb-#{$escaped-size} { margin-bottom: $measure }
+  .ml-#{$escaped-size} { margin-left: $measure }
+  .mr-#{$escaped-size} { margin-right: $measure }
+
+  /// PADDING
+  .p-#{$escaped-size} {
+    padding: {
+      top: $measure;
+      bottom: $measure;
+      left: $measure;
+      right: $measure;
+    }
+  }
+
+  .py-#{$escaped-size} {
+    padding: {
+      top: $measure;
+      bottom: $measure;
+    }
+  }
+
+  .px-#{$escaped-size} {
+    padding: {
+      left: $measure;
+      right: $measure;
+    }
+  }
+
+  .pt-#{$escaped-size} { padding-top: $measure }
+  .pb-#{$escaped-size} { padding-bottom: $measure }
+  .pl-#{$escaped-size} { padding-left: $measure }
+  .pr-#{$escaped-size} { padding-right: $measure }
+
+  /// SPACING
+  .sy-#{$escaped-size} > * + * {
+    margin: {
+      top: $measure;
+      bottom: $measure;
+    }
+
+    &:first-child { margin-bottom: $measure }
+    &:last-child { margin-bottom: 0 }
+  }
+
+  .sx-#{$escaped-size} > * + * {
+    margin: {
+      left: $measure;
+      right: $measure;
+    }
+
+    &:first-child { margin-right: $measure }
+    &:last-child { margin-right: 0 }
+  }
+}

@@ -1,4 +1,6 @@
 @use "sass:color";
+@use "sass:map";
+@use "sass:selector";
 
 /// VARS
 $min-view-width: 750px;
@@ -17,6 +19,7 @@ $colors: (
   @return map-get($colors, $color);
 }
 
+/// SEMANTIC COLORS
 $semantic-colors: (
   fg: color(black),
   bg: color(white),
@@ -25,3 +28,28 @@ $semantic-colors: (
 @function semantic-color($color) {
   @return map-get($semantic-colors, $color);
 }
+
+/// SIZES
+@function generate-sizes($low: 0, $high: 12) {
+  $sizes: ();
+
+  @for $i from $low through ($high * 2) {
+    $sizes: map.set($sizes, ($i / 2), $i * $unit);
+  }
+
+  @return map.merge(
+    $sizes,
+    (
+      full: 100%,
+      px: 1px
+    )
+  );
+}
+
+$sizes: generate-sizes();
+
+@function size($size) {
+  @return map-get($sizes, $size);
+}
+
+/// SEMANTIC (TYPOGRAPHIC) SIZES
