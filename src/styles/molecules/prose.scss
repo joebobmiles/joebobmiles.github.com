@@ -1,3 +1,9 @@
+@use "atoms/spacing";
+
 .prose {
   width: 30rem;
+  
+  p {
+    @extend .mt-base;
+  }
 }

@@ -1,6 +1,7 @@
 @use "reset";
 @use "font";
 @use "atoms/typography";
+@use "atoms/spacing";
 @use "theme";
 @use "fluid-type" as ft;
 
@@ -17,6 +18,11 @@ html {
     box-sizing: inherit;
     position: inherit;
   }
+}
+
+body {
+  font-size: 1rem;
+  line-height: theme.measure(baseline);
 }
 
 img.emoji {
