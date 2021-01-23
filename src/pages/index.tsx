@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import classnames from "classnames";
 
 import "@styles/global";
@@ -9,7 +10,7 @@ export default () =>
   <main className={styles.container}>
     <header className={styles.header}>
       <h1 className={classnames(styles.text5X, styles.fontBlack)}>
-        <a href="/">JRM.DEV</a>
+        <Link to="/">JRM.DEV</Link>
       </h1>
     </header>
     <main className={styles.main}>
@@ -26,7 +27,7 @@ export default () =>
       <br/>
 
       <h2 className={classnames(styles.right, styles.textXl)}>
-        My name is <a className={styles.anchor} href="/about/">Joseph R Miles</a>.
+        My name is <Link className={styles.anchor} to="/about/">Joseph R Miles</Link>.
         <br/>
         Your friendly neighborhood hacker 👨‍💻.
       </h2>
@@ -39,8 +40,8 @@ export default () =>
         </p>
         <p>
           Want to get in touch? Send an email to&nbsp;
-          <a href="mailto:joe@jrm.dev"><code>joe@jrm.dev</code></a> or Tweet&nbsp;
-          <a href="https://twitter.com/@joebobmiles"><code>@joebobmiles</code></a>.
+          <Link to="mailto:joe@jrm.dev"><code>joe@jrm.dev</code></Link> or Tweet&nbsp;
+          <Link to="https://twitter.com/@joebobmiles"><code>@joebobmiles</code></Link>.
         </p>
       </div>
     </main>
