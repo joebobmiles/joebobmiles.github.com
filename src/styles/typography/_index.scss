@@ -1,5 +1,7 @@
 @use "sass:math";
 
+@forward "prose";
+
 @function scaled-size($ratio, $factor, $base) {
   @return math.pow($ratio, $factor) * $base;
 }

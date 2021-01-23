@@ -1,11 +1,11 @@
-
 .container {
-  min-height: 100vh;
+  height: 100vh;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(max-content, 33vw)) 1fr;
+  grid-template-rows: repeat(3, minmax(max-content, 1fr));
   row-gap: 1rem;
+  place-content: start;
 
   .header, .main, .footer {
     display: inherit;

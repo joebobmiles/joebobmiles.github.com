@@ -1,4 +1,5 @@
 import * as React from "react";
+import classnames from "classnames";
 
 import "@styles/global.scss";
 import "@styles/code-theme.scss";
@@ -21,7 +22,7 @@ export default () =>
         Your friendly neighborhood hacker.👨‍💻 
       </h2>
 
-      <div className={styles.right}>
+      <div className={classnames(styles.right, "prose")}>
         <p>
           This is my own little corner of the Internet🌎, where I&nbsp;
           <a href="/posts/">learn in public</a> and keep a&nbsp;
