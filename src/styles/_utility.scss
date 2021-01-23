@@ -2,6 +2,6 @@
 @use "theme";
 
 @function approximate-units($measure) {
-  $unit: theme.measure(unit);
+  $unit: theme.$unit;
   @return math.round($measure / $unit) * $unit;
 }
