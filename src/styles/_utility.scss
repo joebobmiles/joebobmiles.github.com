@@ -1,7 +1,42 @@
 @use "sass:math";
 @use "theme";
 
-@function approximate-units($measure) {
+@function str-replace($string, $target, $replacement: "") {
+  $index: str-index($string, $target);
+
+  @if $index {
+    @return
+      str-slice($string, 1, $index - 1)
+      + $replacement
+      + str-replace(
+        str-slice($string, $index + str-length($target)),
+        $target,
+        $replacement
+      );
+  }
+
+  @return $string;
+}
+
+@function css-escape($value) {
+  $replace-index: (
+    ".": "\\.",
+    ":": "\\:",
+    "#": "\\#",
+  );
+
+  // #{...} coerces any value into a string, so we use that here to make sure
+  // any value we're passed is _definitely_ a string.
+  $result: #{$value};
+
+  @each $char, $replacement in $replace-index {
+    $result: str-replace($result, $char, $replacement);
+  }
+
+  @return $result;
+}
+
+@function clamp-to-units($measure) {
   $unit: theme.$unit;
   @return math.round($measure / $unit) * $unit;
 }
