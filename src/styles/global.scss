@@ -22,7 +22,10 @@ html {
 
 body {
   font-size: 1rem;
-  line-height: theme.measure(baseline);
+  line-height: theme.$unit * 2;
+
+  color: theme.semantic-color(fg);
+  background: theme.semantic-color(bg);
 }
 
 img.emoji {

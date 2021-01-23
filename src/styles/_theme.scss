@@ -1,52 +1,27 @@
 @use "sass:color";
 
-$-baseline: 1.25rem;
-$measures: (
-  baseline: $-baseline,
-  unit: $-baseline / 2,
-);
-
-@function measure($name) { @return map-get($measures, $name); }
-
-$sizes: (
-  semantic: (
-    xs: -2,
-    sm: -1,
-    base: 0,
-    md: 0,
-    lg: 1,
-    xl: 2,
-    2x: 3,
-    3x: 4,
-    4x: 5,
-    5x: 6,
-    6x: 7,
-    7x: 8,
-    8x: 9,
-  ),
-  absolute: (
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10
-  ),
-);
-
+/// VARS
 $min-view-width: 750px;
 
-@function color($color) {
-  $colors: (
-    fg: #111,
-    bg: white,
-    light-fg: color.scale(#111, $lightness: 40%)
-  );
+$-baseline: 1.25;
+$unit: ($-baseline / 2) * 1rem;
+$ratio: 1.25;
 
+/// COLORS
+$colors: (
+  black: #111,
+  white: #FFF,
+);
+
+@function color($color) {
   @return map-get($colors, $color);
+}
+
+$semantic-colors: (
+  fg: color(black),
+  bg: color(white),
+);
+
+@function semantic-color($color) {
+  @return map-get($semantic-colors, $color);
 }
