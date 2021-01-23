@@ -6,6 +6,7 @@
           {
             "name": "typescript-plugin-css-modules",
             "options": {
+              "classnameTransform": "camelCaseOnly",
               "rendererOptions": {
                 "sass": {
                   "includePaths": [

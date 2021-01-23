@@ -1,4 +1,6 @@
 @use "theme";
+@use "molecules/prose";
+@use "atoms/typography";
 
 .container {
   height: 100vh;

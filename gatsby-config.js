@@ -82,6 +82,9 @@ module.exports = {
           includePaths: [
             "./src/styles"
           ]
+        },
+        cssLoaderOptions: {
+          camelCase: true,
         }
       }
     },
