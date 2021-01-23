@@ -43,13 +43,3 @@ $styles: (
 @each $style in $styles {
   .font-#{$style} { font-style: $style }
 }
-
-.anchor {
-  color: theme.semantic-color(anchor-fg);
-  padding: 0.05em;
-  border-radius: 0.1em;
-  
-  &:hover, &:focus {
-    background-color: theme.semantic-color(anchor-bg);
-  }
-}
