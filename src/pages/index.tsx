@@ -26,7 +26,7 @@ export default () =>
       <br/>
 
       <h2 className={classnames(styles.right, styles.textXl)}>
-        My name is <a href="/about/">Joseph R Miles</a>.
+        My name is <a className={styles.anchor} href="/about/">Joseph R Miles</a>.
         <br/>
         Your friendly neighborhood hacker 👨‍💻.
       </h2>

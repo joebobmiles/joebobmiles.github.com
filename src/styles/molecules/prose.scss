@@ -12,12 +12,5 @@
     }
   }
 
-  a:any-link {
-    color: theme.semantic-color(anchor-fg);
-    padding: 0.05em;
-    
-    &:hover, &:focus {
-      background-color: theme.semantic-color(anchor-bg);
-    }
-  }
+  a:any-link { @extend .anchor }
 }
