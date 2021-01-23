@@ -1,3 +1,4 @@
+@use "theme";
 @use "atoms/typography";
 @use "atoms/spacing";
 
@@ -8,6 +9,15 @@
   p {
     &:not(:first-child) {
       @extend .mt-md;
+    }
+  }
+
+  a:any-link {
+    color: theme.semantic-color(anchor-fg);
+    padding: 0.05em;
+    
+    &:hover, &:focus {
+      background-color: theme.semantic-color(anchor-bg);
     }
   }
 }

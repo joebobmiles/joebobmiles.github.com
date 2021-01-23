@@ -13,7 +13,15 @@ export default () =>
       </h1>
     </header>
     <main className={styles.main}>
-      <h1 className={classnames(styles.left, styles.text4X)}>👋 Howdy!</h1>
+      <h1
+        className={classnames(
+          styles.left,
+          styles.text4X,
+          styles.fontSemibold
+        )}
+      >
+        👋 Howdy!
+      </h1>
 
       <br/>
 

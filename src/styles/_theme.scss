@@ -13,7 +13,23 @@ $ratio: 1.25;
 /// COLORS
 $colors: (
   black: #111,
+  grey: #AAA,
+  silver: #DDD,
   white: #FFF,
+  
+  navy: #001F3F,
+  blue: #0074D9,
+  aqua: #7FDBFF,
+  teal: #39CCCC,
+  olive: #3D9970,
+  green: #2ECC40,
+  lime: #01FF70,
+  yellow: #FFDC00,
+  orange: #FF851B,
+  red: #FF4136,
+  maroon: #85144B,
+  fuschia: #F012BE,
+  purple: #B10DC9,
 );
 
 @function color($color) {
@@ -24,6 +40,9 @@ $colors: (
 $semantic-colors: (
   fg: color(black),
   bg: color(white),
+
+  anchor-fg: color(blue),
+  anchor-bg: fade-out(color(blue), .85),
 );
 
 @function semantic-color($color) {
