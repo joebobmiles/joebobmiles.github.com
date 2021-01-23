@@ -67,6 +67,12 @@ exports.onCreateWebpackConfig = ({
       ]
     },
     resolve: {
+      extensions: [
+        ".js", ".jsx", ".ts", ".tsx", ".scss"
+      ],
+      mainFiles: [
+        "index", "_index"
+      ],
       alias: {
         "@styles": path.resolve(__dirname, "src/styles"),
       },

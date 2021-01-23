@@ -1,8 +1,9 @@
 import * as React from "react";
 import classnames from "classnames";
 
-import "@styles/global.scss";
-import "@styles/code-theme.scss";
+import "@styles/global";
+import "@styles/code-theme";
+import "@styles/molecules/prose";
 import styles from "./index.module.scss";
 
 export default () =>
