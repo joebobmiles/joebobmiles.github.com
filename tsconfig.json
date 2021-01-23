@@ -3,7 +3,18 @@
         "esModuleInterop": true,
         "jsx": "react",
         "plugins": [
-          { "name": "typescript-plugin-css-modules" }
+          {
+            "name": "typescript-plugin-css-modules",
+            "options": {
+              "rendererOptions": {
+                "sass": {
+                  "includePaths": [
+                    "./src/styles"
+                  ]
+                }
+              }
+            }
+          }
         ],
         "typeRoots": [
           "src/types/"
