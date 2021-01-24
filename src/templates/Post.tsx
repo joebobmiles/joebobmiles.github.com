@@ -4,7 +4,7 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Helmet } from "react-helmet"
 
-import Layout from "../components/Layout"
+import Layout from "../components/OldLayout"
 
 import styles from "./Post.module.scss";
 
