@@ -35,13 +35,13 @@ export default () =>
       <div className={classnames(styles.right, styles.prose)}>
         <p>
           This is my own little corner of the Internet 🌎, where I&nbsp;
-          <a href="/posts/">learn in public</a> and keep a&nbsp;
-          <a href="/projects/">directory of my work</a>.
+          <Link to="/posts/">learn in public</Link> and keep a&nbsp;
+          <Link to="/projects/">directory of my work</Link>.
         </p>
         <p>
           Want to get in touch? Send an email to&nbsp;
-          <Link to="mailto:joe@jrm.dev"><code>joe@jrm.dev</code></Link> or Tweet&nbsp;
-          <Link to="https://twitter.com/@joebobmiles"><code>@joebobmiles</code></Link>.
+          <a href="mailto:joe@jrm.dev"><code>joe@jrm.dev</code></a> or Tweet&nbsp;
+          <a href="https://twitter.com/@joebobmiles"><code>@joebobmiles</code></a>.
         </p>
       </div>
     </main>
