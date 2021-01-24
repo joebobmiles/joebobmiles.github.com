@@ -3,10 +3,12 @@ import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Helmet } from "react-helmet"
+import classnames from "classnames";
 
-import Layout from "../components/OldLayout"
+import Layout from "../components/Layout"
 
 import styles from "./Post.module.scss";
+import {right, left} from "../components/Layout.module.scss";
 
 type PostProps = { data?: any }
 
@@ -30,12 +32,12 @@ export default ({
     </Helmet>
 
     <article className={styles.article}>
-      <header>
+      <header className={left}>
         <time>{ frontmatter.date }</time>
         <h1>{ frontmatter.title }</h1>
       </header>
 
-      <main className={styles.prose}>
+      <main className={classnames(right, styles.prose)}>
         <MDXProvider>
           <MDXRenderer>
             { body }
