@@ -5,11 +5,23 @@ import classnames from "classnames";
 import Layout from "../components/Layout"
 
 import styles from "./posts.module.scss";
-import {right} from "../components/Layout.module.scss";
+import {right, left} from "../components/Layout.module.scss";
 
 export default ({ data: { allMdx: { edges }} }) => (
   <Layout>
-    <dl className={classnames(right, styles.syXl)}>
+    <h1
+      className={classnames(left, styles.text4X, styles.fontSemibold)}
+      style={{
+        position: "sticky",
+        top: 0
+      }}
+    >
+      Posts
+    </h1>
+
+    <br/>
+
+    <dl className={classnames(right, styles.syXl, styles.ml05)}>
       {
         edges
         .map(({ node }) => node)
