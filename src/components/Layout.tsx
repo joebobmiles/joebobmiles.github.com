@@ -60,7 +60,7 @@ export default ({ children }) =>
         </main>
 
         <footer className={styles.footer}>
-          <p>&copy; 2020 &ndash; {currentYear} {title}</p>
+          <p>&copy; 2020 &ndash; {currentYear} <Link to="/">{title}</Link></p>
         </footer>
       </main>
     </>
