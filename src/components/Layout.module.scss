@@ -1,0 +1,51 @@
+@use "theme";
+@use "atoms/spacing";
+@use "atoms/typography";
+
+.container {
+  @extend .p-0\.5;
+
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(max-content, 33vw)) 1fr;
+  grid-template-rows: repeat(3, minmax(max-content, 1fr));
+  place-content: start;
+
+  .header, .main, .footer {
+    display: inherit;
+    grid-template-columns: inherit;
+
+    grid-column: 1 / -1;
+  }
+}
+
+.header {
+  h1 {
+    grid-column: span 2;
+    place-self: center;
+  }
+}
+
+.main {
+  place-content: start;
+  row-gap: theme.semantic-size(md);
+
+  .left {
+    grid-column: 1;
+    justify-self: end;
+  }
+
+  .right {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+.footer {
+  p {
+    grid-column: 2;
+    justify-self: start;
+    align-self: end;
+  }
+}
