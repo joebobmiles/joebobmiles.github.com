@@ -8,7 +8,7 @@
   height: 100vh;
 
   display: grid;
-  grid-template-columns: repeat(2, minmax(max-content, 33vw)) 1fr;
+  grid-template-columns: 33vw minmax(max-content, 33vw) 1fr;
   grid-template-rows: repeat(3, minmax(max-content, 1fr));
   place-content: start;
 

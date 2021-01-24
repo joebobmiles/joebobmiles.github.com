@@ -32,9 +32,19 @@ export default ({
     </Helmet>
 
     <article className={styles.article}>
-      <header className={left}>
-        <time>{ frontmatter.date }</time>
-        <h1>{ frontmatter.title }</h1>
+      <header
+        className={classnames(left, styles.hMaxFull)}
+        style={{
+          textAlign: "right",
+          position: "sticky",
+          top: 0,
+          alignSelf: "start"
+        }}
+      >
+        <time className={styles.textSm}>{ frontmatter.date }</time>
+        <h1 className={classnames(styles.text3X, styles.fontSemibold)}>
+          { frontmatter.title }
+        </h1>
       </header>
 
       <main className={classnames(right, styles.prose)}>
