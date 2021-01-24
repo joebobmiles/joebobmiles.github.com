@@ -21,7 +21,7 @@ export default ({ data: { allMdx: { edges }} }) => (
 
     <br/>
 
-    <dl className={classnames(right, styles.syXl, styles.ml05)}>
+    <dl className={classnames(right, styles.syXl)}>
       {
         edges
         .map(({ node }) => node)
