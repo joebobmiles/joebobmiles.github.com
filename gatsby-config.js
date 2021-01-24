@@ -7,6 +7,7 @@ module.exports = {
     author: {
         name: `Joseph R Miles`,
         email: `joe@jrm.dev`,
+        twitter: `@joebobmiles`
     },
     siteUrl: `https://jrm.dev`,
   },

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import classnames from "classnames";
 
 import Layout from "../components/Layout";
@@ -8,7 +8,15 @@ import "@styles/global";
 import styles from "./index.module.scss";
 import { right, left } from "../components/Layout.module.scss";
 
-export default () =>
+export default ({
+  data: {
+    site: {
+      siteMetadata: {
+        author
+      }
+    }
+  }
+}) =>
 (
   <Layout>
     <h1
@@ -24,7 +32,7 @@ export default () =>
     <br/>
 
     <h2 className={classnames(right, styles.textXl)}>
-      My name is <Link className={styles.anchor} to="/about/">Joseph R Miles</Link>.
+      My name is <Link className={styles.anchor} to="/about/">{author.name}</Link>.
       <br/>
       Your friendly neighborhood hacker 👨‍💻.
     </h2>
@@ -37,9 +45,23 @@ export default () =>
       </p>
       <p>
         Want to get in touch? Send an email to&nbsp;
-        <a href="mailto:joe@jrm.dev"><code>joe@jrm.dev</code></a> or Tweet&nbsp;
-        <a href="https://twitter.com/@joebobmiles"><code>@joebobmiles</code></a>.
+        <a href={`mailto:${author.email}`}><code>{author.email}</code></a> or Tweet&nbsp;
+        <a href={`https://twitter.com/${author.twitter}`}><code>{author.twitter}</code></a>.
       </p>
     </div>
   </Layout>
 );
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        author {
+          name
+          email
+          twitter
+        }
+      }
+    }
+  }
+`;
