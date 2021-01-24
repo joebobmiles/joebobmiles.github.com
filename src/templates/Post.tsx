@@ -47,6 +47,8 @@ export default ({
         </h1>
       </header>
 
+      <br/>
+
       <main className={classnames(right, styles.prose)}>
         <MDXProvider>
           <MDXRenderer>
