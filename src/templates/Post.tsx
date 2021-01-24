@@ -33,16 +33,13 @@ export default ({
 
     <article className={styles.article}>
       <header
-        className={classnames(left, styles.hMaxFull)}
+        className={classnames(right)}
         style={{
-          textAlign: "right",
-          position: "sticky",
-          top: 0,
-          alignSelf: "start"
+          width: "30rem"
         }}
       >
         <time className={styles.textSm}>{ frontmatter.date }</time>
-        <h1 className={classnames(styles.text3X, styles.fontSemibold)}>
+        <h1 className={classnames(styles.text5X, styles.fontSemibold)}>
           { frontmatter.title }
         </h1>
       </header>
