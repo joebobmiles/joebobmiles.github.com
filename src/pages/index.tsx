@@ -46,7 +46,7 @@ export default ({
       <p>
         Want to get in touch? Send an email to&nbsp;
         <a href={`mailto:${author.email}`}><code>{author.email}</code></a> or Tweet&nbsp;
-        <a href={`https://twitter.com/${author.twitter}`}><code>{author.twitter}</code></a>.
+        <a target="_blank" rel="external nofollow noreferrer noopener" href={`https://twitter.com/${author.twitter}`}><code>{author.twitter}</code></a>.
       </p>
     </div>
   </Layout>

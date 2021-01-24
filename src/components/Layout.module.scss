@@ -21,6 +21,8 @@
 }
 
 .header {
+  min-height: 33vh;
+
   h1 {
     grid-column: span 2;
     place-self: center;
@@ -43,6 +45,8 @@
 }
 
 .footer {
+  @extend .h-min-3;
+
   p {
     grid-column: 2;
     justify-self: start;
