@@ -39,7 +39,6 @@
   }
 
   .right {
-    @extend .ml-0\.5;
     grid-column: 2;
     justify-self: start;
   }

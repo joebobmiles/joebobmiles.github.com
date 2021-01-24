@@ -9,13 +9,7 @@ import {right, left} from "../components/Layout.module.scss";
 
 export default ({ data: { allMdx: { edges }} }) => (
   <Layout>
-    <h1
-      className={classnames(left, styles.text4X, styles.fontSemibold)}
-      style={{
-        position: "sticky",
-        top: 0
-      }}
-    >
+    <h1 className={classnames(left, styles.text4X, styles.fontSemibold)}>
       Posts
     </h1>
 
