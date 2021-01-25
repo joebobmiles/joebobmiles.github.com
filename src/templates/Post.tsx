@@ -38,7 +38,12 @@ export default ({
           width: "30rem"
         }}
       >
-        <time className={styles.textSm}>{ frontmatter.date }</time>
+        <time
+          className={classnames(styles.textSm, styles.voiceLoud)}
+          dateTime={frontmatter.date}
+        >
+          {new Date(frontmatter.date).toLocaleDateString()}
+        </time>
         <h1 className={classnames(styles.text5X, styles.fontSemibold)}>
           { frontmatter.title }
         </h1>
@@ -62,7 +67,7 @@ query($slug: String!) {
   mdx(fields: { slug: { eq: $slug } }) {
     frontmatter {
       title
-      date(formatString: "DD MMMM, YYYY")
+      date
     }
     body
     excerpt

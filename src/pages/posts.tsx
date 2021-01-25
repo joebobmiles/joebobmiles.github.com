@@ -29,8 +29,11 @@ export default ({ data: { allMdx: { edges }} }) => (
               <h1 className={classnames(styles.voiceHeading)}>
                 {frontmatter.title}
               </h1>
-              <time className={classnames(styles.textSm, styles.voiceLoud)}>
-                {frontmatter.date}
+              <time
+                className={classnames(styles.textSm, styles.voiceLoud)}
+                dateTime={frontmatter.date}
+              >
+                {new Date(frontmatter.date).toLocaleDateString()}
               </time>
             </dt>
             <dd>
@@ -49,7 +52,7 @@ query {
     edges {
       node {
         frontmatter {
-          date(formatString: "DD MMMM, YYYY")
+          date
           title
         }
         fields {
