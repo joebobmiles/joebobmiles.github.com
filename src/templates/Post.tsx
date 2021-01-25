@@ -63,22 +63,22 @@ export default ({
 );
 
 export const query = graphql`
-query($slug: String!) {
-  mdx(fields: { slug: { eq: $slug } }) {
-    frontmatter {
-      title
-      date
+  query($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date
+      }
+      body
+      excerpt
     }
-    body
-    excerpt
-  }
-  site {
-    siteMetadata {
-      title
-      author {
-        name
+    site {
+      siteMetadata {
+        title
+        author {
+          name
+        }
       }
     }
   }
-}
-`
+`;
