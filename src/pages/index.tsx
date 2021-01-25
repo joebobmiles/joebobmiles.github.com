@@ -32,7 +32,7 @@ export default ({
     <br/>
 
     <h2 className={classnames(right, styles.textXl)}>
-      My name is <Link className={styles.anchor} to="/about/">{author.name}</Link>.
+      My name is <Link className={styles.link} to="/about/">{author.name}</Link>.
       <br/>
       Your friendly neighborhood hacker 👨‍💻.
     </h2>
