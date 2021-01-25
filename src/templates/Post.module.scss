@@ -3,3 +3,23 @@
 @use "molecules/prose";
 
 .article { display: contents }
+
+h1, h2, h3, h4, h5, h6 {
+  :global(a.anchor.before) {
+    margin-left: -0.6em;
+    opacity: 0;
+
+    transition: opacity 500ms ease-in-out;
+
+    &:hover {
+      background: none;
+      opacity: 100%;
+    }
+
+    & > svg {
+      width: 0.5em;
+      height: 1em;
+      vertical-align: middle;
+    }
+  }
+}

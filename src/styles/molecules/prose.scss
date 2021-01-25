@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "theme";
 @use "atoms/typography";
 @use "atoms/spacing";
@@ -6,13 +7,51 @@
   @extend .text-md;
   width: 30rem;
   
-  p {
+  p, h1, h2, h3, h4, h5, h6, blockquote, figure, div, pre, aside {
     &:not(:first-child) {
       @extend .mt-md;
     }
   }
 
-  a:any-link { @extend .anchor }
+  a:any-link {
+    @extend .anchor;
+
+    &[rel~="external"]:after {
+      content: "↗";
+    }
+  }
+
+  // TYPE SCALE
+  @for $i from 1 through 6 {
+    h#{$i} {
+      $font-size: typography.scaled-size(theme.$ratio, (6 - $i));
+      font-size: $font-size;
+      line-height: math.ceil($font-size / theme.$unit) * theme.$unit;
+    }
+  }
+
+  // HEADING STYLES
+  h1, h2, h3, h4, h5, h6 {
+    @extend .font-semibold;
+  }
+
+  /// CODE STYLES
+  *:not(pre) > code {
+    &:before, &:after { content: "`"; }
+
+    padding: 0.05em;
+    border-radius: 0.1em;
+  }
+
+  pre {
+    $padding: theme.semantic-size(sm);
+    padding: $padding;
+    margin: 0 (-1 * $padding);
+
+    border-radius: 0.1em;
+
+    overflow-x: auto;
+  }
 }
 
 .anchor {

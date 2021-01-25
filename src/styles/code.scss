@@ -1,8 +1,8 @@
-@use "vars";
+@use "theme";
 
 pre[class*="language-"], code[class*="language-"] {
-  color: vars.color(bg);
-  background: vars.color(fg);
+  color: theme.color(white);
+  background: theme.color(black);
 
   white-space: pre;
   -moz-tab-size: 2;
