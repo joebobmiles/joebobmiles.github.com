@@ -33,9 +33,10 @@ export default ({
 
     <article className={styles.article}>
       <header
-        className={classnames(right)}
+        className={classnames(left)}
         style={{
-          width: "30rem"
+          width: "30rem",
+          textAlign: "right"
         }}
       >
         <h1 className={classnames(styles.text5X, styles.fontSemibold)}>
