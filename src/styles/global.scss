@@ -1,13 +1,13 @@
 @use "reset";
 @use "font";
-@use "atoms/typography";
-@use "atoms/spacing";
 @use "theme";
 @use "code";
+@use "atoms/typography";
+@use "atoms/spacing";
+@use "molecules/voices";
 
 html {
   font-size: 110%;
-  font-family: font.family(mono);
 
   z-index: 0;
   box-sizing: border-box;
@@ -21,8 +21,7 @@ html {
 }
 
 body {
-  font-size: 1rem;
-  line-height: theme.$unit * 2;
+  @extend .voice-normal, .text-md;
 
   color: theme.semantic-color(fg);
   background: theme.semantic-color(bg);
@@ -34,4 +33,17 @@ img.emoji {
 
   margin: 0 .05em 0 .1em;
   vertical-align: -.1em;
+}
+
+em { @extend .voice-emphasis; }
+strong { @extend .voice-important; }
+
+sup {
+  font-size: 50%;
+  vertical-align: super;
+}
+
+sub {
+  font-size: 50%;
+  vertical-align: sub;
 }

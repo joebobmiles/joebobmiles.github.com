@@ -43,3 +43,11 @@ $styles: (
 @each $style in $styles {
   .font-#{$style} { font-style: $style }
 }
+
+@each $family, $stack in theme.$fonts {
+  .font-#{$family} { font-family: $stack }
+}
+
+@each $family, $stack in theme.$semantic-fonts {
+  .font-#{$family} { font-family: $stack }
+}

@@ -7,7 +7,7 @@ import styles from "./404.module.scss";
 
 const NotFoundPage = () => (
   <Layout>
-    <h1 className={classnames(left, styles.text3X, styles.fontSemibold)}>
+    <h1 className={classnames(left, styles.text3X, styles.voiceHeading)}>
       🤖 404
     </h1>
 

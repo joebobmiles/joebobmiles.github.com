@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "atoms/spacing";
 @use "atoms/typography";
+@use "molecules/voices";
 
 .article {
   display: block;

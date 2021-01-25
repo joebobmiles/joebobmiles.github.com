@@ -23,7 +23,7 @@ export default ({
       className={classnames(
         left,
         styles.text4X,
-        styles.fontSemibold
+        styles.voiceHeading
       )}
     >
       👋 Howdy!

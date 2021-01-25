@@ -39,6 +39,7 @@ $colors: (
 /// SEMANTIC COLORS
 $semantic-colors: (
   fg: color(black),
+  light-fg: color.scale(color(black), $lightness: 40%),
   bg: color(white),
 
   anchor-fg: color(blue),
@@ -91,4 +92,26 @@ $semantic-sizes: (
 
 @function semantic-size($size) {
   @return math.pow($ratio, map-get($semantic-sizes, $size)) * (2 * $unit);
+}
+
+/// FONT FAMILIES
+$fonts: (
+  serif: (Charter, Times, serif),
+  sans: (Helevetica, system-ui, sans-serif),
+  mono: (Inconsolata, Monaco, Consolas, monospace),
+);
+
+@function font($name) {
+  @return map-get($fonts, $name);
+}
+
+/// SEMANTIC FONT FAMILIES
+$semantic-fonts: (
+  body: font(mono),
+  caption: font(mono),
+  heading: font(mono),
+);
+
+@function semantic-font($name) {
+  @return map-get($semantic-fonts, $name);
 }

@@ -9,7 +9,7 @@ import {right, left} from "../components/Layout.module.scss";
 
 export default ({ data: { allMdx: { edges }} }) => (
   <Layout>
-    <h1 className={classnames(left, styles.text4X, styles.fontSemibold)}>
+    <h1 className={classnames(left, styles.text4X, styles.voiceHeading)}>
       Posts
     </h1>
 
@@ -26,10 +26,10 @@ export default ({ data: { allMdx: { edges }} }) => (
             className={styles.article}
           >
             <dt className={classnames(styles.mb05)}>
-              <h1 className={classnames(styles.fontSemibold)}>
+              <h1 className={classnames(styles.voiceHeading)}>
                 {frontmatter.title}
               </h1>
-              <time className={classnames(styles.textSm)}>
+              <time className={classnames(styles.textSm, styles.voiceLoud)}>
                 {frontmatter.date}
               </time>
             </dt>

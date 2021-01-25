@@ -1,0 +1,27 @@
+@use "atoms/typography";
+
+.voice-normal {
+  @extend .font-body, .font-regular, .font-normal;
+}
+
+.voice-loud {
+  @extend .font-body, .font-regular, .font-normal;
+  text-transform: uppercase;
+}
+
+.voice-heading {
+  @extend .font-heading, .font-semibold, .font-normal;
+}
+
+.voice-aside {
+  @extend .font-body, .font-regular, .font-italic;
+}
+
+.voice-emphasis {
+  @extend .font-body, .font-regular, .font-normal;
+  text-decoration: underline;
+}
+
+.voice-important {
+  @extend .font-body, .font-semibold, .font-normal;
+}

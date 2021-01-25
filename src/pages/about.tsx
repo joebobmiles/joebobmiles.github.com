@@ -20,7 +20,7 @@ export default ({
     <article style={{
       display: "contents"
     }}>
-      <h1 className={classnames(left, styles.text2X, styles.fontSemibold)}>
+      <h1 className={classnames(left, styles.text2X, styles.voiceHeading)}>
         About {author.name}
       </h1>
 

@@ -3,9 +3,10 @@
 @use "atoms/typography";
 @use "atoms/spacing";
 @use "molecules/link";
+@use "molecules/voices";
 
 .prose {
-  @extend .text-md;
+  @extend .voice-normal;
   width: 30rem;
   
   p, h1, h2, h3, h4, h5, h6, blockquote, figure, div, pre, aside {
@@ -31,12 +32,12 @@
     }
   }
 
-  // HEADING STYLES
+  // HEADINGS
   h1, h2, h3, h4, h5, h6 {
-    @extend .font-semibold;
+    @extend .voice-heading;
   }
 
-  /// CODE STYLES
+  /// CODE
   *:not(pre) > code {
     &:before, &:after { content: "`"; }
 
@@ -52,5 +53,23 @@
     border-radius: 0.1em;
 
     overflow-x: auto;
+  }
+
+  /// BLOCKQUOTES, ASIDES
+  blockquote, aside {
+    @extend .voice-aside, .text-sm;
+    color: theme.semantic-color(light-fg);
+  }
+
+  blockquote {
+    quotes: '“' '”' "‘" "’";
+
+    :first-child:before {
+      content: open-quote;
+    }
+
+    :last-child:after {
+      content: close-quote;
+    }
   }
 }
