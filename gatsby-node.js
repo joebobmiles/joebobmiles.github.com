@@ -4,6 +4,7 @@ const { createFilePath } = require("gatsby-source-filesystem");
 exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
   if (node.internal.type === "Mdx")
   {
+    // Create page slug
     const slug = createFilePath({
       node,
       getNode,
@@ -14,6 +15,15 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
       node,
       name: `slug`,
       value: slug
+    });
+
+    // Identify page as post.
+    const isPost = node.fileAbsolutePath.match(/posts\//) !== null;
+
+    createNodeField({
+      node,
+      name: `isPost`,
+      value: isPost
     });
   }
 };
@@ -37,11 +47,14 @@ exports.createPages = async ({
   );
 
   slugs.data.allMdx.edges.forEach(({ node }) => {
-    const { fields: { slug } } = node
+    const { fields: { slug, isPost } } = node
 
     createPage({
       path: slug,
-      component: path.resolve("./src/templates/Post.tsx"),
+      component:
+        isPost
+        ? path.resolve("./src/templates/Post.tsx")
+        : path.resolve("./src/templates/Default.tsx"),
       context: {
         slug
       }
