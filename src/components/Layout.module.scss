@@ -45,9 +45,13 @@
 }
 
 .footer {
-  @extend .h-min-3;
+  @extend .h-min-6x, .w-full;
 
   div {
+    @extend .w-full;
+
+    color: theme.semantic-color(light-fg);
+
     grid-column: 2;
     justify-self: start;
     align-self: end;
@@ -59,6 +63,10 @@
 
       li {
         display: inline-block;
+
+        a:hover {
+          color: theme.semantic-color(fg);
+        }
       }
     }
   }

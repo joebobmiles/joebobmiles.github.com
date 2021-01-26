@@ -144,7 +144,9 @@ export default ({ children }) =>
                 </li>
               </ul>
             </nav>
-            <p className={styles.textSm}><i className="far fa-copyright" title="&copy;"></i> 2020 &ndash; {currentYear} <Link to="/">{title}</Link></p>
+            <p className={styles.textSm}>
+              <i className="far fa-copyright" title="&copy;"></i> 2020 &ndash; {currentYear} <Link to="/">{title}</Link>
+            </p>
           </div>
         </footer>
       </main>
