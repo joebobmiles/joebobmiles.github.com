@@ -97,4 +97,17 @@
       margin-top: 0 !important;
     }
   }
+
+  /// FIGURES
+  figure {
+    img {
+      @extend .w-full;
+      text-align: center;
+    }
+
+    figcaption {
+      @extend .voice-aside, .text-sm;
+      color: theme.semantic-color(light-fg);
+    }
+  }
 }
