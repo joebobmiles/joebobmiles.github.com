@@ -18,7 +18,7 @@
   a:any-link {
     @extend .link;
 
-    &[rel~="external"]:after {
+    &[rel*="external"]:after {
       content: "↗";
     }
   }
