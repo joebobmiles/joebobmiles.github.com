@@ -32,13 +32,14 @@ exports.createPages = async ({
   graphql,
   actions: { createPage }
 }) => {
-  const slugs = await graphql(`
+  const nodes = await graphql(`
     query {
       allMdx {
         edges {
           node {
             fields {
               slug
+              isPost
             }
           }
         }
@@ -46,7 +47,7 @@ exports.createPages = async ({
     }`
   );
 
-  slugs.data.allMdx.edges.forEach(({ node }) => {
+  nodes.data.allMdx.edges.forEach(({ node }) => {
     const { fields: { slug, isPost } } = node
 
     createPage({
