@@ -47,9 +47,19 @@
 .footer {
   @extend .h-min-3;
 
-  p {
+  div {
     grid-column: 2;
     justify-self: start;
     align-self: end;
+  }
+  
+  .socialMediaLinks {
+    ul {
+      @extend .sx-0\.5;
+
+      li {
+        display: inline-block;
+      }
+    }
   }
 }
