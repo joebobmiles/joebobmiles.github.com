@@ -91,23 +91,6 @@ $all-sizes: map.merge(
   .pr-#{$escaped-size} { padding-right: $measure }
 
   /// SPACING
-  .sy-#{$escaped-size} > * + * {
-    margin: {
-      top: $measure;
-      bottom: $measure;
-    }
-
-    &:first-child { margin-bottom: $measure }
-    &:last-child { margin-bottom: 0 }
-  }
-
-  .sx-#{$escaped-size} > * + * {
-    margin: {
-      left: $measure;
-      right: $measure;
-    }
-
-    &:first-child { margin-right: $measure }
-    &:last-child { margin-right: 0 }
-  }
+  .sy-#{$escaped-size} > * + * { margin-top: $measure }
+  .sx-#{$escaped-size} > * + * { margin-left: $measure }
 }
