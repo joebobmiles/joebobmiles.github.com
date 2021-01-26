@@ -77,11 +77,16 @@
   ul {
     margin-left: 1em;
 
-    li:before {
+    &:not(:global(.contains-task-list)) > li:before {
       content: "-";
       position: absolute;
 
       left: -1em;
+    }
+
+    :global(li.task-list-item > input[type="checkbox"]) {
+      margin-left: -1.25em;
+      margin-right: -0.25em;
     }
 
     li > ul {
