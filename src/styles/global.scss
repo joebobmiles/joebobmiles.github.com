@@ -13,6 +13,8 @@ html {
   box-sizing: border-box;
   position: relative;
 
+  scroll-behavior: smooth;
+
   *, *:before, *:after {
     z-index: inherit;
     box-sizing: inherit;
