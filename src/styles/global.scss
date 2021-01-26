@@ -41,9 +41,11 @@ strong { @extend .voice-important; }
 sup {
   font-size: 50%;
   vertical-align: super;
+  font-weight: bolder;
 }
 
 sub {
   font-size: 50%;
   vertical-align: sub;
+  font-weight: bolder;
 }
