@@ -27,6 +27,13 @@ export default ({ children }) =>
             description
             author {
               name
+              email
+              twitter
+              github
+              codepen
+              dev
+              medium
+              linkedin
             }
           }
         }
@@ -67,7 +74,7 @@ export default ({ children }) =>
               <ul>
                 <li>
                   <a
-                    href="mailto:joe@jrm.dev"
+                    href={`mailto:${author.email}`}
                     title="Email"
                     target="_blank"
                     rel="external noreferrer noopener nofollow"
@@ -77,7 +84,7 @@ export default ({ children }) =>
                 </li>
                 <li>
                   <a
-                    href="https://twitter.com/@joebobmiles"
+                    href={`https://twitter.com/${author.twitter}`}
                     title="Twitter"
                     target="_blank"
                     rel="external noreferrer noopener nofollow"
@@ -87,7 +94,7 @@ export default ({ children }) =>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/joebobmiles"
+                    href={`https://github.com/${author.github}`}
                     title="GitHub"
                     target="_blank"
                     rel="external noreferrer noopener nofollow"
@@ -97,7 +104,7 @@ export default ({ children }) =>
                 </li>
                 <li>
                   <a
-                    href="https://codepen.io/joebobmiles"
+                    href={`https://codepen.io/${author.codepen}`}
                     title="CodePen"
                     target="_blank"
                     rel="external noreferrer noopener nofollow"
@@ -107,7 +114,7 @@ export default ({ children }) =>
                 </li>
                 <li>
                   <a
-                    href="https://dev.to/joebobmiles"
+                    href={`https://dev.to/${author.dev}`}
                     title="DEV Community"
                     target="_blank"
                     rel="external noreferrer noopener nofollow"
@@ -117,7 +124,7 @@ export default ({ children }) =>
                 </li>
                 <li>
                   <a
-                    href="https://medium.com/joebobmiles"
+                    href={`https://medium.com/${author.medium}`}
                     title="Medium"
                     target="_blank"
                     rel="external noreferrer noopener nofollow"
@@ -127,7 +134,7 @@ export default ({ children }) =>
                 </li>
                 <li>
                   <a
-                    href="https://linkedin.com/in/josephrmiles"
+                    href={`https://linkedin.com/in/${author.linkedin}`}
                     title="LinkedIn"
                     target="_blank"
                     rel="external noreferrer noopener nofollow"
