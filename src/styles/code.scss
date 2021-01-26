@@ -1,6 +1,6 @@
 @use "theme";
 
-pre[class*="language-"], code[class*="language-"] {
+pre[class*="language-"], code[class*="language-"]:not([class*="language-text"]) {
   color: theme.color(white);
   background: theme.color(black);
 

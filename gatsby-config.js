@@ -56,7 +56,12 @@ module.exports = {
           `gatsby-remark-series`,
           `gatsby-remark-table-of-contents`,
           `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: `>`
+            }
+          },
           {
             resolve: `gatsby-remark-external-links`,
             options: {
