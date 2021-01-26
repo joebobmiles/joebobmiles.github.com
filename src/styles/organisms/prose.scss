@@ -73,6 +73,7 @@
     }
   }
 
+  /// LISTS
   ul {
     margin-left: 1em;
 
@@ -84,6 +85,15 @@
     }
 
     li > ul {
+      margin-top: 0 !important;
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+    margin-left: 1.5em;
+
+    li > ol {
       margin-top: 0 !important;
     }
   }
