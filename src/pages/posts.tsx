@@ -48,7 +48,7 @@ export default ({ data: { allMdx: { edges }} }) => (
 
 export const query = graphql`
 query {
-  allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+  allMdx(sort: {fields: frontmatter___date, order: DESC}, filter: {fields: {isPost: { eq: true}}}) {
     edges {
       node {
         frontmatter {
