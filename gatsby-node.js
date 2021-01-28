@@ -25,6 +25,15 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
       name: `isPost`,
       value: isPost
     });
+
+    // Identify page as project.
+    const isProject = node.fileAbsolutePath.match(/projects\//) !== null;
+
+    createNodeField({
+      node,
+      name: `isProject`,
+      value: isProject
+    });
   }
 };
 

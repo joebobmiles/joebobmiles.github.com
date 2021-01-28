@@ -1,2 +1,15 @@
 @use "atoms/typography";
+@use "atoms/spacing";
 @use "molecules/voices";
+
+.project {
+  display: block;
+  width: 30rem;
+
+  ul {
+    @extend .sx-0\.5;
+    li {
+      display: inline-block;
+    }
+  }
+}

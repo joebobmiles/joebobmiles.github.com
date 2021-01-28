@@ -7,7 +7,7 @@ import Layout from "../components/Layout"
 import styles from "./posts.module.scss";
 import {right, left} from "../components/Layout.module.scss";
 
-export default ({ data: { allMdx: { edges }} }) => (
+export default ({ data: { allMdx: { edges } } }) => (
   <Layout>
     <h1 className={classnames(left, styles.text4X, styles.voiceHeading)}>
       Posts
@@ -47,25 +47,25 @@ export default ({ data: { allMdx: { edges }} }) => (
 );
 
 export const query = graphql`
-query {
-  allMdx(
-    sort: {fields: frontmatter___date, order: DESC},
-    filter: {fields: {isPost: { eq: true}}}
-  ) {
-    edges {
-      node {
-        frontmatter {
-          date
-          title
+  query {
+    allMdx(
+      sort: {fields: frontmatter___date, order: DESC},
+      filter: {fields: {isPost: { eq: true}}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            date
+            title
+          }
+          fields {
+            slug
+          }
+          excerpt
+          id
         }
-        fields {
-          slug
-        }
-        excerpt
-        id
       }
-    }
-    totalCount
-  } 
-}
-`
+      totalCount
+    } 
+  }
+`;
