@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 import classnames from "classnames";
 
 import Layout from "../components/Layout";
+import ExternalLink from "../components/ExternalLink";
 
 import "@styles/global";
 import styles from "./index.module.scss";
@@ -45,8 +46,8 @@ export default ({
       </p>
       <p>
         Want to get in touch? Send an email to&nbsp;
-        <a rel="external" href={`mailto:${author.email}`}><code>{author.email}</code></a> or Tweet&nbsp;
-        <a target="_blank" rel="external nofollow noreferrer noopener" href={`https://twitter.com/${author.twitter}`}><code>{author.twitter}</code></a>.
+        <ExternalLink to={`mailto:${author.email}`}><code>{author.email}</code></ExternalLink> or Tweet&nbsp;
+        <ExternalLink to={`https://twitter.com/${author.twitter}`}><code>{author.twitter}</code></ExternalLink>.
       </p>
     </div>
   </Layout>

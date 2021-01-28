@@ -3,6 +3,7 @@ import {Link, graphql} from "gatsby";
 import classnames from "classnames";
 
 import Layout from "../components/Layout";
+import ExternalLink from "../components/ExternalLink";
 import {left,right} from "../components/Layout.module.scss";
 
 import styles from "./projects.module.scss";
@@ -40,65 +41,45 @@ export default ({ data: { allMdx: { edges } } }) =>
                         case "web":
                           return v === null ? null : (
                             <li>
-                              <a
-                                href={v}
-                                target="_blank"
-                                rel="external noopener nofollower"
-                              >
+                              <ExternalLink to={v}>
                                 <i className="fas fa-globe"></i>
-                              </a>
+                              </ExternalLink>
                             </li>
                           );
 
                         case "github":
                           return v === null ? null : (
                             <li>
-                              <a
-                                href={`https://github.com/${v}`}
-                                target="_blank"
-                                rel="external noreferrer noopener nofollower"
-                              >
+                              <ExternalLink to={`https://github.com/${v}`}>
                                 <i className="fab fa-github"></i>
-                              </a>
+                              </ExternalLink>
                             </li>
                           );
 
                         case "twitter":
                           return v === null ? null : (
                             <li>
-                              <a
-                                href={`https://twitter.com/${v}`}
-                                target="_blank"
-                                rel="external noreferrer noopener nofollower"
-                              >
+                              <ExternalLink to={`https://twitter.com/${v}`}>
                                 <i className="fab fa-twitter"></i>
-                              </a>
+                              </ExternalLink>
                             </li>
                           );
 
                         case "medium":
                           return v === null ? null : (
                             <li>
-                              <a
-                                href={`https://medium.com/${v}`}
-                                target="_blank"
-                                rel="external noreferrer noopener nofollower"
-                              >
+                              <ExternalLink to={`https://medium.com/${v}`}>
                                 <i className="fab fa-medium"></i>
-                              </a>
+                              </ExternalLink>
                             </li>
                           );
 
                         case "dev":
                           return v === null ? null : (
                             <li>
-                              <a
-                                href={`https://dev.to/${v}`}
-                                target="_blank"
-                                rel="external noreferrer noopener nofollower"
-                              >
+                              <ExternalLink to={`https://dev.to/${v}`}>
                                 <i className="fab fa-dev"></i>
-                              </a>
+                              </ExternalLink>
                             </li>
                           );
 
