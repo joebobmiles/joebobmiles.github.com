@@ -32,7 +32,7 @@ export default ({
     <br/>
 
     <h2 className={classnames(right, styles.textXl)}>
-      My name is <Link className={styles.link} to="/about/">{author.name}</Link>.
+      My name is <Link rel="author" className={styles.link} to="/about/">{author.name}</Link>.
       <br/>
       Your friendly neighborhood hacker 👨‍💻.
     </h2>
@@ -45,7 +45,7 @@ export default ({
       </p>
       <p>
         Want to get in touch? Send an email to&nbsp;
-        <a href={`mailto:${author.email}`}><code>{author.email}</code></a> or Tweet&nbsp;
+        <a rel="external" href={`mailto:${author.email}`}><code>{author.email}</code></a> or Tweet&nbsp;
         <a target="_blank" rel="external nofollow noreferrer noopener" href={`https://twitter.com/${author.twitter}`}><code>{author.twitter}</code></a>.
       </p>
     </div>
