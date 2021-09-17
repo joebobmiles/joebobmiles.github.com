@@ -100,7 +100,7 @@ export default ({ data: { allMdx: { edges } } }) =>
 export const query = graphql`
   query {
     allMdx(
-      sort: {fields: frontmatter___title, order: DESC},
+      sort: {fields: frontmatter___title, order: ASC},
       filter: {fields: { isProject: { eq: true} } }
     ) {
       edges {
